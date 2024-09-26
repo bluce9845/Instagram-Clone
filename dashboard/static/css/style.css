@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color: white;
+  --second-color: #262626;
+  --second-color-2: #8e8e8e;
+  --bg-color: #ffffff;
+  --second-bg-color: #fafafa;
+  --border-color: #dbdbdb;
+  --second-border-color: #efefef;
+  --link-color: #0095f6;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: arial;
+  color: var(--bg-color);
+}
+
+.containers {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.8fr 3fr 2fr 2.5fr;
+  grid-template-areas:
+    "sidebar header header sidebar2"
+    "sidebar content content sidebar2";
+}
+
+/* header */
+
+.header {
+  height: 20vh;
+  grid-area: header;
+  color: var(--second-color);
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.header .story {
+  cursor: pointer;
+  margin: 0 0 0 30px;
+}
+
+.header .story .story-item {
+  margin: 0 16px 0 0;
+  width: 58px;
+  height: 58px;
+  padding: 7px 7px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .story .story-item img {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+}
+
+.header .story .story-item .name {
+  display: inline-block;
+  font-family: var(--font-roboto);
+  font-style: normal;
+  position: absolute;
+  margin-top: 97px;
+  font-size: 0.8rem;
+  justify-content: center;
+  font-weight: 300;
+}
+
+/* sidebar */
+.sidebar {
+  height: 100vh;
+  grid-area: sidebar;
+  width: 18.7%;
+  border-right: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  font-family: var(--font-roboto);
+  font-style: normal;
+  text-decoration: none;
+}
+
+.containers .sidebar .menu-sidebar a {
+  color: var(--second-color);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.containers .sidebar .menu-sidebar a span.icon {
+  align-items: first baseline;
+  font-size: 1.5rem;
+}
+
+.containers .sidebar .menu-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.containers .sidebar .menu-sidebar .notifications .icon,
+.containers .sidebar .menu-sidebar .profile .icon {
+  margin-left: 14px;
+}
+
+.containers .sidebar .menu-sidebar .create .icon {
+  margin-left: 3px;
+}
+
+.containers .sidebar .menu-sidebar .messages .icon {
+  margin-left: 2px;
+}
+
+.containers .sidebar .menu-sidebar .explore .span-text {
+  margin-left: 23px;
+}
+
+.containers .sidebar .menu-sidebar .messages .span-text {
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+.containers .sidebar .menu-sidebar .reels .span-text {
+  margin-left: 21px;
+  margin-top: 13px;
+}
+
+.containers .sidebar .menu-sidebar .create .span-text {
+  margin-left: 19.5px;
+  margin-top: 12px;
+}
+
+.containers .sidebar .menu-sidebar .profile .span-text {
+  margin-top: 10px;
+  margin-left: 18px;
+}
+
+.containers .sidebar .menu-sidebar .more .icon {
+  margin: 0 0 0 4px;
+}
+
+.containers .sidebar .menu-sidebar .more .span-text {
+  margin-top: 6px;
+  margin-left: 19.8px;
+}
+
+.containers .sidebar .menu-sidebar a {
+  margin: 12px 0 0 0;
+}
+
+.containers .sidebar .menu-sidebar a span.span-text {
+  display: inline-block;
+  margin-top: 8px;
+  vertical-align: top;
+}
+
+/* sidebar 2 */
+
+.sidebar2 {
+  height: 110vh;
+  grid-area: sidebar2;
+  background-color: var(--bg-color);
+}
+
+/* content */
+.contents {
+  height: 140vh;
+  grid-area: content;
+  background-color: var(--bg-color);
+}
+
+.contents .content {
+  width: 450px;
+  height: 746px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contents .content .header-profile {
+  margin: 0 16px 0 0;
+  width: 48px;
+  height: 48px;
+  padding: 7px 7px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contents .content .header-profile img {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.6px solid white;
+}
+
+.account-name {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-right: 70rem;
+}
+
+.account-name p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-top: -5px;
+}
+
+.verified-icon {
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+
+.upload-time {
+  font-size: 0.875rem;
+  color: gray;
+  margin-top: -3px;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.upload-time span {
+  margin: 0 4px 0 0;
+}
+
+.contents .content .header-profile .name span img {
+  border: none;
+  width: 10px;
+  height: 10px;
+  margin-top: 2.4px;
+}
+
+.contents .content .header-content .options {
+  margin-left: 26rem;
+  position: absolute;
+  margin-top: 10px;
+}
+
+.contents .content .header-content .options a {
+  color: var(--second-color);
+}
+
+.content .content-image {
+  width: 450px;
+  height: 500px;
+  margin-top: 2px;
+}
+
+.content .content-image img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--second-border-color);
+}
+
+.content .action-user a {
+  color: var(--second-color);
+}
+
+.content .action-user .icon-action a {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 10px 0 0;
+  color: var(--second-color);
+  text-decoration: none;
+}
+
+.content .action-user .icon-action .bookmark-icon {
+  margin: 0 0 0 18rem;
+}
+
+.content .action-user .description-content {
+  margin-top: -16px;
+}
+
+.content .action-user .translate-description-content {
+  margin-top: -13px;
+}
+
+.content .action-user .view-all-comment,
+.content .action-user .view-all-comment p a {
+  margin-top: -16px;
+  color: var(--second-color-2);
+}
+
+.content .action-user .add-comment {
+  margin-top: -15px;
+}
+
+.content .action-user .add-comment img {
+  margin-left: 18.9rem;
+}
+
+/* sidebar 2 section */
+
+.sidebar2 .profile-icon-sidebar2 .profile-sidebar2-image {
+  margin: 2.5rem 0 0 0;
+}
+
+.sidebar2 .profile-icon-sidebar2 .name {
+  margin: -50px 0 0 25px;
+}
+
+.sidebar2 .profile-icon-sidebar2 .name .second-name {
+  margin: -22px 0 0 0;
+  color: var(--second-color-2);
+}
+
+.sidebar2 .profile-icon-sidebar2 .switch-account {
+  margin: -40px 0 0 20%;
+  color: var(--link-color);
+}
+
+.sidebar2 .suggestions-account .suggestion-text {
+  font-size: 0.9rem;
+  color: var(--second-color-2);
+}
+
+.sidebar2 .suggestions-account .suggestion-text span {
+  margin: 0 0 0 35.5%;
+}
+
+.sidebar2 .suggestion-account .profile-suggestion-image img {
+  margin-left: 7px;
+}
+
+.sidebar2 .suggestion-account .name-suggestion-account {
+  font-size: 0.8rem;
+  margin: -38px 0 0 12px;
+}
+
+.sidebar2 .suggestion-account .name-suggestion-account .second-name-suggestion {
+  margin: -19px 0 0 0;
+  color: var(--second-color-2);
+}
+
+.sidebar2 .suggestion-account .follow-description-follow {
+  margin: -32px 0 0 20.2%;
+  font-size: 0.8rem;
+  color: var(--link-color);
+}
+
+.sidebar2 .suggestion-account .follow-description-follow-back {
+  margin: -32px 0 0 19.5%;
+  font-size: 0.8rem;
+  color: var(--link-color);
+}
+
+.sidebar2 .footer-sidebar2 {
+  width: 100%;
+  /* background-color: coral; */
+}
+
+.sidebar2 .footer-sidebar2 a {
+  display: inline-flex;
+  font-family: var(--font-roboto);
+  flex-direction: row-reverse;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--second-color-2);
+}
+
+.sidebar2 .footer-sidebar2 span {
+  font-size: 0.4rem;
+  color: var(--second-color-2);
+}
+
+.sidebar2 .footer-sidebar2 .instagram-meta p {
+  font-size: 0.9rem;
+  font-family: var(--font-roboto);
+  color: var(--second-color-2);
+}

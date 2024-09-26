@@ -1,11 +1,330 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test</title>
-  </head>
-  <body>
-    <h1>hello</h1>
-  </body>
-</html>
+{% extends "base.html" %}{% load static %} {% block title %}Instagram{% endblock %} {% block content %}
+<div class="containers">
+  <!-- header -->
+  <div class="item header container">
+    <div class="story nav-link">
+      <div class="story-item rounded-circle">
+        <img src="{% static "asset/profile-img/alex-profile.jpg" %}" alt="Story Image" class="rounded-circle" />
+        <div class="name">
+          <p class="">Cosmos</p>
+        </div>
+      </div>
+
+      <div class="story-item rounded-circle">
+        <img src="{% static "asset/profile-img/profile-2.jpg" %}" alt="Story Image" class="rounded-circle" />
+        <div class="name">
+          <p class="">John.cx</p>
+        </div>
+      </div>
+
+      <div class="story-item rounded-circle">
+        <img src="{% static "asset/profile-img/profile-3.jpg" %}" alt="Story Image" class="rounded-circle" />
+        <div class="name">
+          <p class="">ToniKross</p>
+        </div>
+      </div>
+
+      <div class="story-item rounded-circle">
+        <img src="{% static "asset/profile-img/anabel.jpg" %}" alt="Story Image" class="rounded-circle" />
+        <div class="name">
+          <p class="">Anabel.john</p>
+        </div>
+      </div>
+
+      <div class="story-item rounded-circle">
+        <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" alt="Story Image" class="rounded-circle" />
+        <div class="name">
+          <p class="">Vicky_roks1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sidebar -->
+  <section class="item sidebar position-fixed">
+    <div class="logo"><img src="{% static "asset/img/logo.png" %}" alt="logo-instagram" class="nav-link mt-4 ms-3" /></div>
+
+    <div class="menu-sidebar mt-4">
+      <a href="#" class="home fw-semibold ms-3"
+        ><span class="icon icon-home fs-2"><i class="bx bxs-home"></i></span> <span class="span-text ms-3 fw-bold fs-5">Home</span>
+      </a>
+
+      <a href="#" class="search ms-3"
+        ><span class="icon fs-2"><i class="bx bx-search"></i></span> <span class="span-text ms-3">Search</span>
+      </a>
+
+      <a href="#" class="explore ms-3"
+        ><span class="icon fs-4"><i class="fa-regular fa-compass"></i></span> <span class="span-text">Explore</span>
+      </a>
+
+      <a href="#" class="reels ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-rels.png" %}" alt="" width="26" style="margin-bottom: 5px" /></span> <span class="span-text">Reels</span> </a>
+
+      <a href="#" class="messages ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-message.png" %}" alt="" width="25" style="margin-bottom: 5px" /></span> <span class="span-text">Messages</span> </a>
+
+      <a href="#" class="notifications"
+        ><span class="icon fs-2"><i class="bx bx-heart"></i></span> <span class="span-text ms-3">Notifications</span>
+      </a>
+
+      <a href="#" class="create ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+
+      <a href="#" class="profile ms-1"
+        ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
+      </a>
+
+      <a href="#" class="more ms-3"
+        ><span class="icon"><i class="fa-solid fa-bars"></i></span> <span class="span-text">More</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- content -->
+  <div class="item contents">
+    <!-- content-1 -->
+    <div class="content mt-1 ms-auto me-auto">
+      <div class="header-content">
+        <div class="header-profile rounded-circle"><img src="{% static "asset/profile-img/profile-2.jpg" %}" alt="Story Image" class="rounded-circle" /></div>
+        <div class="name account-name">
+          <p class="fw-bold d-inline-flex align-items-center">
+            John.cx
+            <span class="verified-icon ms-1"> <img src="{% static "asset/icons/verified-icon.png" %}" width="15" /> </span>
+          </p>
+          <div class="upload-time"><span>•</span> 5h</div>
+        </div>
+        <div class="options d-inline-flex">
+          <a href="#" class="fs-4 text-decoration-none"><i class="bx bx-dots-horizontal-rounded"></i></a>
+        </div>
+      </div>
+      <div class="content-image"><img src="{% static "asset/content-img/content-1.jpg" %}" alt="" class="content-img rounded-2" /></div>
+
+      <div class="action-user">
+        <div class="icon-action mt-2">
+          <a href="#" class="fs-2"><i class="bx bx-heart"></i></a>
+          <a href="#" class="fs-3 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="28" alt="" /></a>
+          <a href="#" class="fs-3 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="30" alt="" /></a>
+          <a href="#" class="fs-3 bookmark-icon"><i class="bx bx-bookmark"></i></a>
+        </div>
+
+        <div class="like-number">
+          <p class="text-dark fw-semibold mt-2">741,368 likes</p>
+        </div>
+
+        <div class="description-content">
+          <p>
+            <span class="fw-bold"><a href="#" class="text-decoration-none">John.cx</a></span> Parabéns Ayrton, minha inspiração sempre 🇧🇷📷
+          </p>
+        </div>
+
+        <div class="translate-description-content">
+          <p><a href="#" class="text-decoration-none fw-semibold">See translation</a></p>
+        </div>
+
+        <div class="view-all-comment">
+          <p><a href="#" class="text-decoration-none">View all 13,384 comments</a></p>
+        </div>
+
+        <div class="add-comment">
+          <p>
+            <a href="#" class="text-decoration-none"><span>Add a comment…</span> <img src="{% static "asset/icons/add-comment-icon.png" %}" alt="add-expresions" /></a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- content-2 -->
+    <div class="content mt-3 ms-auto me-auto">
+      <div class="header-content">
+        <div class="header-profile rounded-circle"><img src="{% static "asset/profile-img/vicky-profile.jpg" %}" alt="Story Image" class="rounded-circle" /></div>
+        <div class="name account-name">
+          <p class="fw-bold d-inline-flex align-items-center">
+            Vicky_roks1
+            <span class="verified-icon ms-1"> <img src="{% static "asset/icons/verified-icon.png" %}" width="15" /> </span>
+          </p>
+          <div class="upload-time"><span>•</span> 5h</div>
+        </div>
+        <div class="options d-inline-flex">
+          <a href="#" class="fs-4 text-decoration-none"><i class="bx bx-dots-horizontal-rounded"></i></a>
+        </div>
+      </div>
+
+      <div class="content-image"><img src="{% static "asset/content-img/ahmed-content.jpg" %}" alt="" class="content-img rounded-2" /></div>
+
+      <div class="action-user">
+        <div class="icon-action mt-2">
+          <a href="#" class="fs-2"><i class="bx bx-heart"></i></a>
+          <a href="#" class="fs-3 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="28" alt="" /></a>
+          <a href="#" class="fs-3 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="30" alt="" /></a>
+          <a href="#" class="fs-3 bookmark-icon"><i class="bx bx-bookmark"></i></a>
+        </div>
+
+        <div class="like-number">
+          <p class="text-dark fw-semibold mt-2">341,368 likes</p>
+        </div>
+
+        <div class="description-content">
+          <p>
+            <span class="fw-bold"><a href="#" class="text-decoration-none">Vicky_roks1</a></span> The most famous coffee in Africa. 🍵
+          </p>
+        </div>
+
+        <div class="translate-description-content">
+          <p><a href="#" class="text-decoration-none fw-semibold">See translation</a></p>
+        </div>
+
+        <div class="view-all-comment">
+          <p><a href="#" class="text-decoration-none">View all 25,384 comments</a></p>
+        </div>
+
+        <div class="add-comment">
+          <p>
+            <a href="#" class="text-decoration-none"><span>Add a comment…</span> <img src="{% static "asset/icons/add-comment-icon.png" %}" alt="add-expresions" /></a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- content-3 -->
+    <div class="content mt-3 ms-auto me-auto">
+      <div class="header-content">
+        <div class="header-profile rounded-circle"><img src="{% static "asset/profile-img/vicky-profile.jpg" %}" alt="Story Image" class="rounded-circle" /></div>
+        <div class="name account-name">
+          <p class="fw-bold d-inline-flex align-items-center">
+            Vicky_roks1
+            <span class="verified-icon ms-1"> <img src="{% static "asset/icons/verified-icon.png" %}" width="15" /> </span>
+          </p>
+          <div class="upload-time"><span>•</span> 5h</div>
+        </div>
+        <div class="options d-inline-flex">
+          <a href="#" class="fs-4 text-decoration-none"><i class="bx bx-dots-horizontal-rounded"></i></a>
+        </div>
+      </div>
+
+      <div class="content-image"><img src="{% static "asset/content-img/drew-content.jpg" %}" alt="" class="content-img rounded-2" /></div>
+
+      <div class="action-user">
+        <div class="icon-action mt-2">
+          <a href="#" class="fs-2"><i class="bx bx-heart"></i></a>
+          <a href="#" class="fs-3 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="28" alt="" /></a>
+          <a href="#" class="fs-3 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="30" alt="" /></a>
+          <a href="#" class="fs-3 bookmark-icon"><i class="bx bx-bookmark"></i></a>
+        </div>
+
+        <div class="like-number">
+          <p class="text-dark fw-semibold mt-2">341,368 likes</p>
+        </div>
+
+        <div class="description-content">
+          <p>
+            <span class="fw-bold"><a href="#" class="text-decoration-none">Vicky_roks1</a></span> Parabéns Ayrton, minha inspiração sempre 🇧🇷📷
+          </p>
+        </div>
+
+        <div class="translate-description-content">
+          <p><a href="#" class="text-decoration-none fw-semibold">See translation</a></p>
+        </div>
+
+        <div class="view-all-comment">
+          <p><a href="#" class="text-decoration-none">View all 13,384 comments</a></p>
+        </div>
+
+        <div class="add-comment">
+          <p>
+            <a href="#" class="text-decoration-none"><span>Add a comment…</span> <img src="{% static "asset/icons/add-comment-icon.png" %}" alt="add-expresions" /></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sidebar2 -->
+  <div class="item sidebar2">
+    <div class="profile-icon-sidebar2">
+      <div class="profile-sidebar2-image"><img src="{% static "asset/profile-img/my-profile.jpg" %}" width="56" alt="profile image" class="rounded-circle" /></div>
+      <div class="name position-absolute">
+        <p class="ms-5 fw-bold">John.cx</p>
+        <p class="ms-5 second-name">John</p>
+      </div>
+
+      <div class="switch-account position-absolute">
+        <a href="#" class="fw-semibold text-decoration-none">Switch</a>
+      </div>
+    </div>
+
+    <div class="suggestions-account">
+      <div class="suggestion-text mt-3">
+        <p class="fw-semibold">
+          Suggestions for you <span><a href="#" class="text-dark text-decoration-none">See All</a></span>
+        </p>
+      </div>
+
+      <div class="suggestion-account">
+        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/emiliano-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
+        <div class="name-suggestion-account position-absolute">
+          <p class="ms-5 fw-bold">emiliano_cz</p>
+          <p class="ms-5 second-name-suggestion">Followed by cosmos</p>
+        </div>
+
+        <div class="follow-description-follow position-absolute">
+          <a href="#" class="fw-semibold text-decoration-none">Follow</a>
+        </div>
+      </div>
+
+      <div class="suggestion-account mt-4">
+        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/jeff-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
+        <div class="name-suggestion-account position-absolute">
+          <p class="ms-5 fw-bold">Jeff.ronald</p>
+          <p class="ms-5 second-name-suggestion">Follows you</p>
+        </div>
+
+        <div class="follow-description-follow-back position-absolute">
+          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow Back</a>
+        </div>
+      </div>
+
+      <div class="suggestion-account mt-4">
+        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/manu-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
+        <div class="name-suggestion-account position-absolute">
+          <p class="ms-5 fw-bold">Manu_singht</p>
+          <p class="ms-5 second-name-suggestion">Followed by jorge21_</p>
+        </div>
+
+        <div class="follow-description-follow position-absolute">
+          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow</a>
+        </div>
+      </div>
+
+      <div class="suggestion-account mt-4">
+        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/nathan-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
+        <div class="name-suggestion-account position-absolute">
+          <p class="ms-5 fw-bold">NathanVerdonk_</p>
+          <p class="ms-5 second-name-suggestion">Followed by Jayiddes_17</p>
+        </div>
+
+        <div class="follow-description-follow position-absolute">
+          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow</a>
+        </div>
+      </div>
+
+      <div class="suggestion-account mt-4">
+        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/yuvraj-singh-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
+        <div class="name-suggestion-account position-absolute">
+          <p class="ms-5 fw-bold">YuvrajSingh_</p>
+          <p class="ms-5 second-name-suggestion">Follows you</p>
+        </div>
+
+        <div class="follow-description-follow-back position-absolute">
+          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow Back</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-sidebar2 mt-4">
+      <a href="#">About</a> <span>•</span> <a href="#">Help</a> <span>•</span> <a href="#">Press</a> <span>•</span> <a href="#">API</a> <span>•</span> <a href="#">Jobs</a> <span>•</span> <a href="#">Privacy</a> <span>•</span>
+      <a href="#">Terms</a> <span>•</span> <a href="#">Locations</a> <span>•</span> <a href="#">Language</a> <span>•</span> <a href="#">Meta Verified</a>
+
+      <div class="instagram-meta mt-3 fw-semibold">
+        <p>© 2023 Instagram from Meta</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
