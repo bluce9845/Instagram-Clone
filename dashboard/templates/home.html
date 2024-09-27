@@ -240,8 +240,8 @@
     <div class="profile-icon-sidebar2">
       <div class="profile-sidebar2-image"><img src="{% static "asset/profile-img/my-profile.jpg" %}" width="56" alt="profile image" class="rounded-circle" /></div>
       <div class="name position-absolute">
-        <p class="ms-5 fw-bold">John.cx</p>
-        <p class="ms-5 second-name">John</p>
+        <p class="ms-5 fw-bold">{{ user.username }}</p>
+        <p class="ms-5 second-name">{{ userData.second_username }}</p>
       </div>
 
       <div class="switch-account position-absolute">

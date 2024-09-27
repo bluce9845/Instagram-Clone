@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import DataUser
 
 def home(request):
+    userData = DataUser.objects.all()
     # check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -20,7 +22,7 @@ def home(request):
             messages.success(request, "There Was An Error Logging, Please Try Again")
             return redirect('home')
     else:
-        return render(request, 'home.html', {})
+        return render(request, 'home.html', {'userData': userData})
 
 def logout_user(request):
     logout(request)
