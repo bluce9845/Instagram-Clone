@@ -430,9 +430,14 @@ body {
 }
 
 .main-content .container .container-content .content .row {
-  gap: 3px;
+  gap: 4px;
 }
 
-.main-content .container .container-content .content .row div {
-  margin-right: "";
+.main-content .container .container-content .content .row .img-content img {
+  cursor: pointer;
+}
+
+.main-content .container .container-content .content .row .img-content p {
+  margin-left: 8px;
+  font-size: 0.8rem;
 }
