@@ -393,3 +393,46 @@ body {
   font-family: var(--font-roboto);
   color: var(--second-color-2);
 }
+
+/* not login page style */
+
+.main-content .category-content .category-item li {
+  border: none;
+  background-color: var(--second-border-color);
+  margin-right: 9px;
+  height: 30px;
+}
+
+.main-content .category-content .category-item a {
+  padding: 1px 3px;
+  text-align: center;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  font-size: 0.7rem;
+  display: flex;
+}
+
+.main-content .category-content .category-item div {
+  height: 28px;
+  width: 28px;
+  background-color: var(--second-color-2);
+  margin-left: 10.3%;
+  cursor: pointer;
+}
+
+.main-content .category-content .category-item div i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--second-bg-color);
+  margin-top: -2px;
+}
+
+.main-content .container .container-content .content .row {
+  gap: 3px;
+}
+
+.main-content .container .container-content .content .row div {
+  margin-right: "";
+}
