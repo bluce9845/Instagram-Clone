@@ -335,10 +335,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item btn-login">
-            <a class="nav-link btn text-white active mt-1 rounded-3 fw-medium" style="background-color: #0095f6; padding: 5px 13px" aria-current="page" href="#">Log In</a>
+            <a class="nav-link btn text-white active mt-1 rounded-3 fw-medium" style="background-color: #0095f6; padding: 5px 13px" aria-current="page" href="{% url "login" %}">Log In</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-medium" href="#" style="color: #0095f6">Sign Up</a>
+            <a class="nav-link fw-medium" href="{% url "register" %}" style="color: #0095f6">Sign Up</a>
           </li>
         </ul>
       </div>
@@ -346,7 +346,7 @@
   </nav>
 </section>
 
-<section class="main-content">
+<section class="main-content" style="height: 115vh">
   <div class="container">
     <p class="text-main-content text-center fw-bold fs-5 mt-2">Discover something new</p>
 
@@ -375,23 +375,23 @@
       <div class="content mt-3" style="margin-right: 7.3%; margin-left: 7.3%">
         <div class="row">
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-1.jpg" %}" alt="">
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music_img/audio_music-1.jpg" %}" alt="">
             <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">K-Pop Music</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-2.jpg" %}" alt="">
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music_img/audio_music-2.jpg" %}" alt="">
             <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Alternative Music</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-3.jpg" %}" alt="">
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music_img/audio_music-3.jpg" %}" alt="">
             <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Rock Music</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-4.jpg" %}" alt="">
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music_img/audio_music-4.jpg" %}" alt="">
             <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Hip Hop & Rap Music</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 img-content" src="{% static "asset/content-item/audio_music-6.jpg" %}" alt="">
+            <img width="160" height="270" class="rounded-2 img-content" src="{% static "asset/content-item/audio_music_img/audio_music-6.jpg" %}" alt="">
             <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Singer-Songwriters</p>
           </div>
         </div>
@@ -409,24 +409,24 @@
       <div class="content mt-3" style="margin-right: 7.3%; margin-left: 7.3%">
         <div class="row">
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-1.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">K-Pop Music</p>
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/sports_img/sports-img-1.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Hockey</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-2.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Alternative Music</p>
+            <img width="160" height="270" class="rounded-2" style="opacity: 3" src="{% static "asset/content-item/sports_img/sports-img-2.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Baseball</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-3.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Rock Music</p>
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/sports_img/sports-img-3.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">High jump</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-4.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Hip Hop & Rap Music</p>
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/sports_img/sports-img-4.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Ice Skating</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 img-content" src="{% static "asset/content-item/audio_music-6.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Singer-Songwriters</p>
+            <img width="160" height="270" class="rounded-2 img-content" src="{% static "asset/content-item/sports_img/sports-img-5.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Long jump</p>
           </div>
         </div>
       </div>
@@ -435,32 +435,32 @@
     <div class="container-content">
       <div class="content-category mt-4" style="margin-right: 7.3%; margin-left: 7.3%">
         <div class="item">
-          <a href="#" class="text-decoration-none text-black fw-semibold"><span style="margin-top: -4px">Audio & Music</span></a>
+          <a href="#" class="text-decoration-none text-black fw-semibold"><span style="margin-top: -4px">Games</span></a>
           <i class="bx bx-chevron-right fs-4 position-absolute"></i>
         </div>
       </div>
 
-      <div class="content mt-3" style="margin-right: 7.3%; margin-left: 7.3%">
+      <div class="content mt-3 mb-3" style="margin-right: 7.3%; margin-left: 7.3%">
         <div class="row">
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-1.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">K-Pop Music</p>
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/games-img/games-img-1.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Tricks</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-2.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Alternative Music</p>
+            <img width="160" height="270" class="rounded-2" style="opacity: 4" src="{% static "asset/content-item/games-img/games-img-2.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Cards</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-3.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Rock Music</p>
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/games-img/games-img-3.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Toys</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/audio_music-4.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Hip Hop & Rap Music</p>
+            <img width="160" height="270" class="rounded-2 " src="{% static "asset/content-item/games-img/games-img-4.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Strategi</p>
           </div>
           <div class="col-md-2 img-content">
-            <img width="160" height="270" class="rounded-2 img-content" src="{% static "asset/content-item/audio_music-6.jpg" %}" alt="">
-            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Singer-Songwriters</p>
+            <img width="160" height="270" class="rounded-2 img-content" src="{% static "asset/content-item/games-img/games-img-5.jpg" %}" alt="">
+            <p class="position-absolute text-white fw-semibold" style="margin-top: -24px">Console</p>
           </div>
         </div>
       </div>
