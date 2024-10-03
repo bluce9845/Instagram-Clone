@@ -95,76 +95,92 @@ body {
   text-decoration: none;
 }
 
-.containers .sidebar .menu-sidebar a {
+.sidebar .menu-sidebar ul li {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0 0 0;
+}
+
+.sidebar .menu-sidebar a {
   color: var(--second-color);
   text-decoration: none;
   font-size: 1rem;
 }
 
-.containers .sidebar .menu-sidebar a span.icon {
+.sidebar .menu-sidebar a span.icon {
   align-items: first baseline;
   font-size: 1.5rem;
 }
 
-.containers .sidebar .menu-sidebar {
+.sidebar .menu-sidebar {
   display: flex;
   flex-direction: column;
 }
 
-.containers .sidebar .menu-sidebar .notifications .icon,
-.containers .sidebar .menu-sidebar .profile .icon {
+.sidebar .menu-sidebar .notifications .icon,
+.sidebar .menu-sidebar .profile .icon {
   margin-left: 14px;
 }
 
-.containers .sidebar .menu-sidebar .create .icon {
+.sidebar .menu-sidebar .create .icon {
   margin-left: 3px;
 }
 
-.containers .sidebar .menu-sidebar .messages .icon {
+.sidebar .menu-sidebar .messages .icon {
   margin-left: 2px;
 }
 
-.containers .sidebar .menu-sidebar .explore .span-text {
+.sidebar .menu-sidebar .explore .span-text {
   margin-left: 23px;
 }
 
-.containers .sidebar .menu-sidebar .messages .span-text {
+.sidebar .menu-sidebar .messages .span-text {
   margin-left: 20px;
-  margin-top: 12px;
+  margin-top: 9px;
 }
 
-.containers .sidebar .menu-sidebar .reels .span-text {
+.sidebar .menu-sidebar .reels .span-text {
   margin-left: 21px;
-  margin-top: 13px;
+  margin-top: 9px;
 }
 
-.containers .sidebar .menu-sidebar .create .span-text {
+.sidebar .menu-sidebar .create .span-text {
   margin-left: 19.5px;
   margin-top: 12px;
 }
 
-.containers .sidebar .menu-sidebar .profile .span-text {
+.sidebar .menu-sidebar .profile .span-text {
   margin-top: 10px;
   margin-left: 18px;
 }
 
-.containers .sidebar .menu-sidebar .more .icon {
+.sidebar .menu-sidebar .more input .icon {
   margin: 0 0 0 4px;
 }
 
-.containers .sidebar .menu-sidebar .more .span-text {
+.sidebar .menu-sidebar .more input .span-text {
   margin-top: 6px;
   margin-left: 19.8px;
 }
 
-.containers .sidebar .menu-sidebar a {
+.sidebar .menu-sidebar .more {
   margin: 12px 0 0 0;
 }
 
-.containers .sidebar .menu-sidebar a span.span-text {
-  display: inline-block;
-  margin-top: 8px;
+.sidebar .menu-sidebar a {
+  margin: 12px 0 0 0;
+}
+
+.sidebar .menu-sidebar .more input span.span-text {
+  display: inline-flex;
+  margin-top: -8px;
   vertical-align: top;
+}
+
+.sidebar .menu-sidebar .more input {
+  display: none;
+  visibility: hidden;
+  appearance: none;
 }
 
 /* sidebar 2 */
