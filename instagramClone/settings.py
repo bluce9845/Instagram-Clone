@@ -26,9 +26,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # instaled apps
     'dashboard',
     'authy',
     'post',
+    'media',
+
+    # library
     'crispy_forms',
 ]
 
