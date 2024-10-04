@@ -20,14 +20,15 @@
             <div class="logo">
               <img src="{% static 'assets2/images/logo.png' %}" alt="logo" />
             </div>
-            {% comment %} <input type="text" placeholder="Phone number, username, or email" /> {% endcomment %} {% comment %} <input type="password" placeholder="Password" /> {% endcomment %} {{form}}
+            {% comment %} <input type="text" placeholder="Phone number, username, or email" />
+            <input type="password" placeholder="Password" /> {% endcomment %}{{form}}  
             <button class="form-btn" type="submit">Log in</button>
             <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
             <span class="has-separator">Or</span>
             <a class="facebook-login" href="#"> <i class="fab fa-facebook-square"></i> Log in with Facebook </a>
             <a class="password-reset" href="#">Forgot password?</a>
           </form>
-          <div class="sign-up">Don't have an account? <a href="#">Sign up</a></div>
+          <div class="sign-up">Don't have an account? <a href="{% url "register" %}">Sign up</a></div>
           <div class="get-the-app">
             <span>Get the app.</span>
             <div class="badges">
