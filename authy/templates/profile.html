@@ -1,1 +1,164 @@
-{% extends "base.html" %} {% load static %} {% block sidebar %} {% include "sidebar.html" %} {% endblock %}
+{% extends "base.html" %} {% load static %} {% block title %}instagram{% endblock %} {% block content %}
+<div class="container-profile">
+  <div class="sidebar-profile">
+     <div class="item sidebar position-fixed">
+    <div class="logo"><img src="{% static "asset/img/logo.png" %}" alt="logo-instagram" class="nav-link mt-4 ms-3" /></div>
+
+    <div class="menu-sidebar mt-4">
+      <div class="sidebar-link">
+            <a href="\" class="home fw-semibold ms-3"
+             ><span class="icon icon-home fs-2"><i class="bx bxs-home"></i></span> <span class="span-text ms-3 fw-bold fs-5" style="margin-top: -10px">Home</span>
+           </a>
+         
+           <a href="#" class="search ms-3"
+             ><span class="icon fs-2"><i class="bx bx-search"></i></span> <span class="span-text ms-3">Search</span>
+           </a>
+         
+           <a href="#" class="explore ms-3"
+             ><span class="icon fs-4"><i class="fa-regular fa-compass"></i></span> <span class="span-text">Explore</span>
+           </a>
+         
+           <a href="#" class="reels ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-rels.png" %}" alt="" width="26" style="margin-bottom: 5px" /></span> <span class="span-text">Reels</span> </a>
+         
+           <a href="#" class="messages ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-message.png" %}" alt="" width="25" style="margin-bottom: 5px" /></span> <span class="span-text">Messages</span> </a>
+         
+           <a href="#" class="notifications"
+             ><span class="icon fs-2"><i class="bx bx-heart"></i></span> <span class="span-text ms-3">Notifications</span>
+           </a>
+         
+           <a href="#" class="create ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+         
+           <a href="{% url "profile" user %}" class="profile ms-1"
+             ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
+           </a>
+      </div>
+
+      <label for="more" class="mt-5 more" style="margin-left: 20px; cursor: pointer">
+        <span class="icon"><i class="fa-solid fa-bars fs-4"></i></span> 
+        <span class="span-text" style="margin: 0 0 0 22px">More</span>
+      </label>
+
+      <input type="checkbox" id="more" style="display: none;">
+
+      <div class="more-container position-absolute rounded-4" style="margin-top: -505px; width: 276px; margin-left: 15px">
+        <ul>
+          <li><a href="#" class="text-decoration-none text-dark"><i class='bx bxs-cog fs-4 position-absolute'></i> <span style="margin-left: 40px;">Setting</span></a></li>
+          <li><a href="#" class="text-decoration-none text-dark"><i class="fa-solid fa-chart-line fs-4 position-absolute"></i> <span style="margin-left: 40px">Your activity</span></a></li>
+          <li><a href="#" class="text-decoration-none text-dark"><i class='bx bx-bookmark fs-4 position-absolute'></i> <span style="margin-left: 40px">Saved</span></a></li>
+          <li><a href="#" class="text-decoration-none text-dark"><i class='bx bx-sun fs-4 position-absolute'></i> <span style="margin-left: 40px">Switch apperance</span></a></li>
+          <li class="top-border"><a href="#" class="text-decoration-none text-dark"><i class='bx bx-message-alt-error fs-4 position-absolute'></i> <span style="margin-left: 40px">Report a problem</span></a></li>
+          <li class="bottom-border"><a href="#" class="text-decoration-none text-dark"><i class="fa-brands fa-threads fs-4 position-absolute"></i> <span style="margin-left: 40px;">Threads</span></a></li>
+          <li><a href="#" class="text-decoration-none text-dark">Switch account</a></li>
+          <li><a href="{% url "logout" %}" class="text-decoration-none text-dark">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {% comment %} profile user section {% endcomment %}
+  <div class="profile-user">
+    <div class="profile-image row align-items-center">
+      <div class="col-md-5 d-flex ">
+        <img src="{% static "asset/profile-img/alex-profile.jpg" %}" class="position-absolute rounded-circle profile-img" width="190" alt="">
+      </div>
+
+      <div class="col-md-7 mt-5 position-absolute" style="left: 50%; top: 1%">
+        <div class="action-name-user d-flex">
+          <p class="name-user mt-1 fs-5">
+            rizki.cosm
+          </p>
+
+          <div class="follow-btn">
+            <button class="btn btn-secondary ms-4 fw-semibold rounded-3">Follow</button>
+          </div>
+
+          <div class="message-btn">
+            <button class="btn btn-secondary ms-2 fw-semibold rounded-3">Message</button>
+          </div>
+
+          <div class="addcontact-btn">
+            <button class="btn btn-secondary ms-2 rounded-3"><i class='bx bx-user-plus bx-flip-horizontal fs-5' ></i></button>
+          </div>
+          
+          <div class="options-profile">
+            <a href="#"><i class='bx bx-dots-horizontal-rounded fs-3 mt-1 ms-2 text-dark'></i></a>
+          </div>
+        </div>
+
+        <div class="follower-posts-amount d-flex mt-2">
+          <p class="post-amount">
+              <span class="fw-semibold">52</span> posts
+          </p>
+
+          <p class="follower-amount">
+              <span class="fw-semibold ms-5">826k</span> followers
+          </p>
+          
+          <p class="following-amount">
+              <span class="fw-semibold ms-5">80</span> following
+          </p>
+        </div>
+
+        <div class="second-name-user-profile">
+          <p class="fw-semibold">Rizki Fiananda ~</p>
+        </div>
+
+        <div class="threads-user-profile" style="margin: -12px 0 0 0">
+          <button class="btn rounded-5"><span><i class="fa-brands fa-threads"></i></span> rizki.cosm <span><i class='bx bxs-check-circle fs-6 ' style='color:#03a031; position: relative; margin: 0 0 0 0'></i></span></button>
+        </div>
+
+        <div class="work">
+          <p>Backend Developer</p>
+        </div>
+
+        <div class="bio-user-profile" style="margin: -20px 0 0 0">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, itaque vero!</p>
+        </div>
+
+        <div class="social-media-user-profile">
+          <div class="link-social-media">
+            <p class="fw-semibold"><i class='bx bx-link-alt'></i> <a href="#" class="text-decoration-none">youtube.com/@deaafrizal</a> <span><i class='bx bxs-check-circle fs-6 ' style='color:#03a031; position: relative; margin: 0 0 0 0'></i></span></p>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} highlights 1 {% endcomment %}
+      <div class="col-md-5 position-absolute highlights" style="top: 35%">
+          <div class="header-profile rounded-circle ">
+            <img src="{% static "asset3/highlight-img/highlight-1.jpg" %}" alt="" class=" rounded-circle">
+            <p class="position-absolute  title-highlight fw-medium">Lake 🏊</p>
+          </div>
+
+
+          {% comment %} highlights 2 {% endcomment %}
+
+          <div class="header-profile rounded-circle ">
+            <img src="{% static "asset3/highlight-img/highlight-2.jpg" %}" alt="" class=" rounded-circle">
+            <p class="position-absolute  title-highlight fw-medium"> comfortable🍵</p>
+          </div>
+
+
+          {% comment %} highlights 3 {% endcomment %}
+          <div class="header-profile rounded-circle ">
+            <img src="{% static "asset3/highlight-img/highlight-3.jpg" %}" alt="" class=" rounded-circle">
+            <p class="position-absolute title-highlight fw-medium">🎶</p>
+          </div>
+
+
+          {% comment %} highlights 4 {% endcomment %}
+
+          <div class="header-profile rounded-circle ">
+            <img src="{% static "asset3/highlight-img/highlight-4.jpg" %}" alt="" class=" rounded-circle">
+            <p class="position-absolute title-highlight fw-medium">🌌</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="border-bottom"></div>
+  </div>
+
+  {% comment %} content user section  {% endcomment %}
+  <div class="content-profile"></div>
+</div>
+{% endblock %}

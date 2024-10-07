@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color: white;
+  --second-color: #262626;
+  --second-color-2: #8e8e8e;
+  --bg-color: #ffffff;
+  --second-bg-color: #f1efef;
+  --border-color: #dbdbdb;
+  --second-border-color: #efefef;
+  --link-color: #0095f6;
+  --ig-separator: 219, 219, 219;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+}
+
+.container-profile {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "sidebar-profile profile-user profile-user profile-user"
+    "sidebar-profile profile-user profile-user profile-user"
+    "sidebar-profile content-profile content-profile content-profile";
+}
+
+.profile-user {
+  grid-area: profile-user;
+  height: 74vh;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid rgb(var(--ig-separator));
+  margin-left: 40px;
+}
+
+.profile-user .profile-image img {
+  margin: 90px 0 0 100px;
+}
+
+.sidebar-profile {
+  height: 100vh;
+  width: 18.7%;
+  grid-area: sidebar-profile;
+  background-color: var(--bg-color);
+}
+
+.profile-user .action-name-user .name-user.message-btn button,
+.profile-user .action-name-user .follow-btn button,
+.profile-user .action-name-user .message-btn button,
+.profile-user .action-name-user .addcontact-btn button {
+  color: var(--second-color);
+  border: none;
+  background-color: var(--second-border-color);
+}
+
+.profile-user .profile-image .threads-user-profile button {
+  padding: 3px solid var(--bg-color) 3px solid var(--bg-color);
+  font-size: 0.7rem;
+  background-color: var(--second-border-color);
+}
+
+.profile-user .profile-image .work p {
+  color: var(--second-color-2);
+}
+
+.profile-user .profile-image .bio-user-profile {
+  line-height: 5mm;
+  width: 290px;
+}
+
+.profile-user .profile-image .social-media-user-profile p a {
+  color: #00376b;
+}
+
+.profile-user .profile-image .highlights {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 55px;
+  margin-top: 8%;
+}
+
+.profile-user .profile-image .highlights .header-profile {
+  width: 85px;
+  height: 85px;
+  padding: 10px 10px;
+  background: var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  /* z-index: 1; */
+}
+
+.profile-user .profile-image .highlights .header-profile img {
+  z-index: 2;
+  width: 82px;
+  height: 82px;
+  margin: 0.1px 0 0 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-color);
+}
+
+.profile-user .profile-image .highlights .header-profile .title-highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 22.4% 0 0 0;
+}
+
+.content-profile {
+  height: 50vh;
+
+  grid-area: content-profile;
+  background-color: var(--bg-color);
+}
