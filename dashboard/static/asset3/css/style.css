@@ -8,6 +8,7 @@
   --second-bg-color: #f1efef;
   --border-color: #dbdbdb;
   --second-border-color: #efefef;
+  --gray-second-color: #737373;
   --link-color: #0095f6;
   --ig-separator: 219, 219, 219;
   --font-roboto: "Roboto", sans-serif;
@@ -21,12 +22,13 @@
 
 body {
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 .container-profile {
   width: 100%;
   display: grid;
-  grid-template-columns: 0.7fr 1fr 1fr 1fr;
+  grid-template-columns: 0.7fr 0.8fr 0.8fr 0.8fr;
   grid-template-areas:
     "sidebar-profile profile-user profile-user profile-user"
     "sidebar-profile profile-user profile-user profile-user"
@@ -38,7 +40,9 @@ body {
   height: 74vh;
   background-color: var(--bg-color);
   border-bottom: 1px solid rgb(var(--ig-separator));
-  margin-left: 40px;
+  width: 935px;
+  height: 500px;
+  overflow-x: hidden;
 }
 
 .profile-user .profile-image img {
@@ -98,14 +102,14 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: 50px;
-  /* z-index: 1; */
+  cursor: pointer;
 }
 
 .profile-user .profile-image .highlights .header-profile img {
   z-index: 2;
   width: 82px;
   height: 82px;
-  margin: 0.1px 0 0 0.5px;
+  margin: -0.3px 0 0 0.3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,7 +125,44 @@ body {
 
 .content-profile {
   height: 50vh;
-
   grid-area: content-profile;
   background-color: var(--bg-color);
+}
+
+.content-profile .header-profile table td {
+  padding: 20px 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--gray-second-color);
+  position: relative;
+}
+
+.content-profile .header-profile table td::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 0.8px;
+  background-color: black;
+  transform: translateX(50%);
+  transition: width 0.3s;
+}
+
+.content-profile .header-profile table td.active-profile::before {
+  width: 50%;
+}
+
+.content-profile .header-profile table td span i.kontak-icon {
+  font-size: 1rem;
+}
+
+.content-profile .header-profile table thead tr {
+  display: flex;
+  justify-content: center;
+}
+
+.content-profile .header-profile table thead tr td {
+  margin: 0 10px;
+  cursor: pointer;
 }
