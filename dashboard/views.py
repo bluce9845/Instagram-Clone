@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm
 from .models import DataUser
 
 def home(request):
+    all_users = User.objects.all()
     userData = DataUser.objects.all()
-    return render(request, 'home.html', {'userData': userData})
+    return render(request, 'home.html', {'userData': userData, 'all_users': all_users})
 
 def logout_user(request):
     logout(request)

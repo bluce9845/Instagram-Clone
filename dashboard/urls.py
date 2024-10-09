@@ -2,7 +2,7 @@ from django.urls import path
 from .import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
-from authy.views import UserProfile
+from authy.views import UserProfile, OtherUserProfile
 
 
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
     path("logout/", views.logout_user, name="logout"),
 
     # profile
-    path("<username>/", UserProfile, name="profile"),
+    path("<username>/profile/", UserProfile, name="profile"),
+    path("<str:username>/profile-other/", OtherUserProfile, name="other_user_profile")
 ]

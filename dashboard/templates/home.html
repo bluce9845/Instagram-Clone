@@ -207,8 +207,8 @@
     <div class="profile-icon-sidebar2">
       <div class="profile-sidebar2-image"><img src="{% static "asset/profile-img/my-profile.jpg" %}" width="56" alt="profile image" class="rounded-circle" /></div>
       <div class="name position-absolute">
-        <p class="ms-5 fw-bold">{{ user.username }}</p>
-        <p class="ms-5 second-name">{{ userData.second_username }}</p>
+        <p class="ms-5 fw-bold"><a class="text-decoration-none text-dark" href="{% url "profile" user %}">{{ user.username }}</a></p>
+        <p class="ms-5 second-name">@{{ user.username }}</p>
       </div>
 
       <div class="switch-account position-absolute">
@@ -223,65 +223,19 @@
         </p>
       </div>
 
-      <div class="suggestion-account">
+      {% for user in all_users|slice:":5" %}
+      <div class="suggestion-account mt-4">
         <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/emiliano-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
         <div class="name-suggestion-account position-absolute">
-          <p class="ms-5 fw-bold">emiliano_cz</p>
-          <p class="ms-5 second-name-suggestion">Followed by cosmos</p>
+          <p class="ms-5 fw-bold"><a href="{% url "other_user_profile" user %}" class="text-decoration-none text-dark">{{ user.username }}</a></p>
+          <p class="ms-5 second-name-suggestion">Followed by {{ user.username }}</p>
         </div>
 
         <div class="follow-description-follow position-absolute">
           <a href="#" class="fw-semibold text-decoration-none">Follow</a>
         </div>
       </div>
-
-      <div class="suggestion-account mt-4">
-        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/jeff-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
-        <div class="name-suggestion-account position-absolute">
-          <p class="ms-5 fw-bold">Jeff.ronald</p>
-          <p class="ms-5 second-name-suggestion">Follows you</p>
-        </div>
-
-        <div class="follow-description-follow-back position-absolute">
-          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow Back</a>
-        </div>
-      </div>
-
-      <div class="suggestion-account mt-4">
-        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/manu-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
-        <div class="name-suggestion-account position-absolute">
-          <p class="ms-5 fw-bold">Manu_singht</p>
-          <p class="ms-5 second-name-suggestion">Followed by jorge21_</p>
-        </div>
-
-        <div class="follow-description-follow position-absolute">
-          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow</a>
-        </div>
-      </div>
-
-      <div class="suggestion-account mt-4">
-        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/nathan-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
-        <div class="name-suggestion-account position-absolute">
-          <p class="ms-5 fw-bold">NathanVerdonk_</p>
-          <p class="ms-5 second-name-suggestion">Followed by Jayiddes_17</p>
-        </div>
-
-        <div class="follow-description-follow position-absolute">
-          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow</a>
-        </div>
-      </div>
-
-      <div class="suggestion-account mt-4">
-        <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/yuvraj-singh-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
-        <div class="name-suggestion-account position-absolute">
-          <p class="ms-5 fw-bold">YuvrajSingh_</p>
-          <p class="ms-5 second-name-suggestion">Follows you</p>
-        </div>
-
-        <div class="follow-description-follow-back position-absolute">
-          <a href="#" class="fw-semibold text-decoration-none follow-back">Follow Back</a>
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
     <div class="footer-sidebar2 mt-4">

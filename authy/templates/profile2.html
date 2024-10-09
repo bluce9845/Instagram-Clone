@@ -66,19 +66,23 @@
       <div class="col-md-7 mt-5 position-absolute" style="left: 50%; top: 1%">
         <div class="action-name-user d-flex">
           <p class="name-user mt-1 fs-5">
-            {{ user.username }}
+            {{ user_profile.username }}
           </p>
 
           <div class="follow-btn">
-            <button class="btn btn-secondary ms-4 fw-semibold rounded-3">Edit profile</button>
+            <button class="btn btn-secondary ms-4 fw-semibold rounded-3">Follow</button>
           </div>
 
           <div class="message-btn">
-            <button class="btn btn-secondary ms-2 fw-semibold rounded-3">Ad tools</button>
+            <button class="btn btn-secondary ms-2 fw-semibold rounded-3">Message</button>
+          </div>
+
+          <div class="addcontact-btn">
+            <button class="btn btn-secondary ms-2 rounded-3"><i class='bx bx-user-plus bx-flip-horizontal fs-5' ></i></button>
           </div>
           
           <div class="options-profile">
-            <a href="#"><i class='bx bxs-cog fs-4 position-absolute fs-3 mt-1 ms-2 text-dark'></i></a>
+            <a href="#"><i class='bx bx-dots-horizontal-rounded fs-3 mt-1 ms-2 text-dark'></i></a>
           </div>
         </div>
 
@@ -134,11 +138,13 @@
             <p class="position-absolute  title-highlight fw-medium"> comfortable🍵</p>
           </div>
 
+
           {% comment %} highlights 3 {% endcomment %}
           <div class="header-profile rounded-circle ">
             <img src="{% static "asset3/highlight-img/highlight-3.jpg" %}" alt="" class=" rounded-circle">
             <p class="position-absolute title-highlight fw-medium">🎶</p>
           </div>
+
 
           {% comment %} highlights 4 {% endcomment %}
 
@@ -160,9 +166,6 @@
                 <span><i class="fa-solid fa-table-cells"></i></span> POSTS
               </td>
               <td id="reels"><img src="{% static "asset/icons/icon-rels.png" %}" alt="" width="15" style="margin-bottom: 5px" /> REELS</td>
-              <td id="saved">
-                <span><i class='bx bx-bookmark'></i></span> SAVED
-              </td>
               <td id="tagged">
                 <span><i class="bx bx-user-pin kontak-icon"></i></span> TAGGED
               </td>
