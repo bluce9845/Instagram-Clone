@@ -173,6 +173,15 @@ body {
 .content-profile-2 {
   grid-area: content-profile-2;
   width: 935px;
+  height: 50vh;
+}
+
+.content-profile-2 .icon {
+  margin: 6% 0 0 46.5%;
+}
+
+.content-profile-2 .text-null-post {
+  margin: 10px 0 0 40.6%;
 }
 
 .content-profile-2 .content-item {

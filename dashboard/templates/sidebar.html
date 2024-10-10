@@ -7,31 +7,35 @@
 
     <div class="menu-sidebar mt-4">
       <div class="sidebar-link">
-            <a href="\" class="home fw-semibold ms-3"
+          <a href="\" class="home fw-semibold ms-3"
              ><span class="icon icon-home fs-2"><i class="bx bxs-home"></i></span> <span class="span-text ms-3 fw-bold fs-5" style="margin-top: -10px">Home</span>
-           </a>
+          </a>
          
-           <a href="#" class="search ms-3"
+          <a href="#" class="search ms-3"
              ><span class="icon fs-2"><i class="bx bx-search"></i></span> <span class="span-text ms-3">Search</span>
-           </a>
+          </a>
          
-           <a href="#" class="explore ms-3"
+          <a href="#" class="explore ms-3"
              ><span class="icon fs-4"><i class="fa-regular fa-compass"></i></span> <span class="span-text">Explore</span>
-           </a>
+          </a>
          
-           <a href="#" class="reels ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-rels.png" %}" alt="" width="26" style="margin-bottom: 5px" /></span> <span class="span-text">Reels</span> </a>
+          <a href="#" class="reels ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-rels.png" %}" alt="" width="26" style="margin-bottom: 5px" /></span> <span class="span-text">Reels</span> </a>
          
-           <a href="#" class="messages ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-message.png" %}" alt="" width="25" style="margin-bottom: 5px" /></span> <span class="span-text">Messages</span> </a>
+          <a href="#" class="messages ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-message.png" %}" alt="" width="25" style="margin-bottom: 5px" /></span> <span class="span-text">Messages</span> </a>
          
-           <a href="#" class="notifications"
+          <a href="#" class="notifications"
              ><span class="icon fs-2"><i class="bx bx-heart"></i></span> <span class="span-text ms-3">Notifications</span>
-           </a>
+          </a>
          
-           <a href="#" class="create ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+          <a href="#" class="create ms-3" onclick="createNewPost()"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+            <div class="slide position-absolute">
+              <div class="close" id="close" onclick="closePost()"><i class="fa-solid fa-xmark text-white"></i></div>
+              <div class="create-post rounded-3 position-relative"></div>
+            </div>
          
-           <a href="{% url "profile" user %}" class="profile ms-1"
+          <a href="{% url "profile" user %}" class="profile ms-1"
              ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
-           </a>
+          </a>
       </div>
 
       <label for="more" class="mt-5 more" style="margin-left: 20px; cursor: pointer">

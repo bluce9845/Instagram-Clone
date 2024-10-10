@@ -53,63 +53,63 @@ class Post(models.Model):
     #     return str(self.caption)
 
 
-class Likes(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_likes")
+# class Likes(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_likes")
 
-    def user_liked_post(sender, instance, *args, **kwargs):
-        like = instance
-        post = like.post
-        sender = like.user
-        # notify = Notification(post=post, sender=sender, user=post.user)
-        # notify.save()
+#     def user_liked_post(sender, instance, *args, **kwargs):
+#         like = instance
+#         post = like.post
+#         sender = like.user
+#         # notify = Notification(post=post, sender=sender, user=post.user)
+#         # notify.save()
 
-    def user_unliked_post(sender, instance, *args, **kwargs):
-        like = instance
-        post = like.post
-        sender = like.user
-        # notify = Notification.objects.filter(post=post, sender=sender, notification_types=1)
-        # notify.delete()
-
-
-class Follow(models.Model):
-    follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follower')
-    following = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
-
-    def user_follow(sender, instance, *args, **kwargs):
-        follow = instance
-        sender = follow.follower
-        following = follow.following
-        # notify = Notification(sender=sender, user=following, notification_types=3)
-        # notify.save()
-
-    def user_unfollow(sender, instance, *args, **kwargs):
-        follow = instance
-        sender = follow.follower
-        following = follow.following
-        # notify = Notification.objects.filter(sender=sender, user=following, notification_types=3)
-        # notify.delete()
-
-class Stream(models.Model):
-    following = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='stream_following')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
-    date = models.DateTimeField()
-
-    def add_post(sender, instance, *args, **kwargs):
-        post = instance
-        user = post.user
-        followers = Follow.objects.all().filter(following=user)
-
-        for follower in followers:
-            stream = Stream(post=post, user=follower.follower, date=post.posted, following=user)
-            stream.save()
+#     def user_unliked_post(sender, instance, *args, **kwargs):
+#         like = instance
+#         post = like.post
+#         sender = like.user
+#         # notify = Notification.objects.filter(post=post, sender=sender, notification_types=1)
+#         # notify.delete()
 
 
-post_save.connect(Stream.add_post, sender=Post)
+# class Follow(models.Model):
+#     follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follower')
+#     following = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
 
-post_save.connect(Likes.user_liked_post, sender=Likes)
-post_delete.connect(Likes.user_unliked_post, sender=Likes)
+#     def user_follow(sender, instance, *args, **kwargs):
+#         follow = instance
+#         sender = follow.follower
+#         following = follow.following
+#         # notify = Notification(sender=sender, user=following, notification_types=3)
+#         # notify.save()
 
-post_save.connect(Follow.user_follow, sender=Follow)
-post_delete.connect(Follow.user_unfollow, sender=Follow)
+#     def user_unfollow(sender, instance, *args, **kwargs):
+#         follow = instance
+#         sender = follow.follower
+#         following = follow.following
+#         # notify = Notification.objects.filter(sender=sender, user=following, notification_types=3)
+#         # notify.delete()
+
+# class Stream(models.Model):
+#     following = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='stream_following')
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+#     date = models.DateTimeField()
+
+#     def add_post(sender, instance, *args, **kwargs):
+#         post = instance
+#         user = post.user
+#         followers = Follow.objects.all().filter(following=user)
+
+#         for follower in followers:
+#             stream = Stream(post=post, user=follower.follower, date=post.posted, following=user)
+#             stream.save()
+
+
+# post_save.connect(Stream.add_post, sender=Post)
+
+# post_save.connect(Likes.user_liked_post, sender=Likes)
+# post_delete.connect(Likes.user_unliked_post, sender=Likes)
+
+# post_save.connect(Follow.user_follow, sender=Follow)
+# post_delete.connect(Follow.user_unfollow, sender=Follow)

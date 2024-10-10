@@ -229,6 +229,32 @@ input#more:checked ~ .more-container {
   box-shadow: 0 0 5px rgba(61, 61, 61, 0.5);
 }
 
+.slide {
+  width: 535.9%;
+  height: 100vh;
+  display: none;
+  top: 0;
+  position: fixed;
+  background-color: rgba(2, 2, 2, 0.5);
+  z-index: 20;
+}
+
+.create-post {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  display: block;
+  margin-top: 7%;
+  background-color: #ffffff;
+  z-index: 7;
+}
+
+.close {
+  margin: 0 0 0 97%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* sidebar 2 */
 
 .sidebar2 {
@@ -242,6 +268,7 @@ input#more:checked ~ .more-container {
   height: 140vh;
   grid-area: content;
   background-color: var(--bg-color);
+  z-index: -1;
 }
 
 .contents .content {
@@ -324,6 +351,7 @@ input#more:checked ~ .more-container {
 
 .contents .content .header-content .options a {
   color: var(--second-color);
+  /* z-index: -1; */
 }
 
 .content .content-image {
@@ -377,6 +405,10 @@ input#more:checked ~ .more-container {
 }
 
 /* sidebar 2 section */
+
+.sidebar2 {
+  z-index: -1;
+}
 
 .sidebar2 .profile-icon-sidebar2 .profile-sidebar2-image {
   margin: 2.5rem 0 0 0;
