@@ -240,13 +240,14 @@ input#more:checked ~ .more-container {
 }
 
 .create-post {
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 500px;
   margin: auto;
   display: block;
-  margin-top: 7%;
+  margin-top: 3%;
   background-color: #ffffff;
   z-index: 7;
+  border: none;
 }
 
 .close {
@@ -255,12 +256,23 @@ input#more:checked ~ .more-container {
   cursor: pointer;
 }
 
+.create-post .title {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.create-post .upload-content .icon img {
+  margin: auto;
+  margin-top: 27%;
+  display: block;
+}
+
 /* sidebar 2 */
 
 .sidebar2 {
   height: 110vh;
   grid-area: sidebar2;
   background-color: var(--bg-color);
+  /* z-index: -1; */
 }
 
 /* content */
@@ -268,7 +280,7 @@ input#more:checked ~ .more-container {
   height: 140vh;
   grid-area: content;
   background-color: var(--bg-color);
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .contents .content {
@@ -351,7 +363,6 @@ input#more:checked ~ .more-container {
 
 .contents .content .header-content .options a {
   color: var(--second-color);
-  /* z-index: -1; */
 }
 
 .content .content-image {
@@ -405,10 +416,6 @@ input#more:checked ~ .more-container {
 }
 
 /* sidebar 2 section */
-
-.sidebar2 {
-  z-index: -1;
-}
 
 .sidebar2 .profile-icon-sidebar2 .profile-sidebar2-image {
   margin: 2.5rem 0 0 0;

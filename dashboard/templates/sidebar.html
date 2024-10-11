@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %}
 
 {% block content %}
  <!-- sidebar -->
@@ -27,10 +27,35 @@
              ><span class="icon fs-2"><i class="bx bx-heart"></i></span> <span class="span-text ms-3">Notifications</span>
           </a>
          
-          <a href="#" class="create ms-3" onclick="createNewPost()"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+          <a class="create ms-3" onclick="createNewPost()" style="cursor: pointer"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
             <div class="slide position-absolute">
               <div class="close" id="close" onclick="closePost()"><i class="fa-solid fa-xmark text-white"></i></div>
-              <div class="create-post rounded-3 position-relative"></div>
+              <div class="create-post rounded-3">
+                <div class="title text-center" style="padding: 10px 20px; height: 45px; width: 100%;">
+                  <p class="fw-bold">Create new post</p>
+                </div>
+                <div class="upload-content">
+                  <div class="icon">
+                    <img src="{% static "asset/icons/icon-create-post.png" %}" width="150" alt="">
+                  </div>
+                  <div class="text-create-post">
+                    <p class="text-center fs-5">Drag photos and videos here</p>
+                  </div>
+                  <div class="button-create-post text-center">
+                    <div class="btn" style="background-color: #1877f2; color: #fff">Select from computer</div>
+                  </div>
+
+                  <div class="post-from-landing-page">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {{form.picture}} <br>
+                      {{form.caption}} <br>
+                      {{form.tags}} <br>
+                      <button class="form-btn" type="submit">Post</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
          
           <a href="{% url "profile" user %}" class="profile ms-1"

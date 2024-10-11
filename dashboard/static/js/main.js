@@ -1,11 +1,23 @@
 function createNewPost() {
+  const containers = document.querySelector(".containers");
+  const contents = document.querySelector(".contents");
+  const sidebar2 = document.querySelector(".sidebar2");
   const createNewPostElement = document.querySelector(".slide");
 
   createNewPostElement.style.display = "block";
+  containers.style.position = "fixed";
+  contents.style.zIndex = "-1";
+  sidebar2.style.zIndex = "-1";
 }
 
 function closePost() {
+  const containers = document.querySelector(".containers");
+  const contents = document.querySelector(".contents");
+  const sidebar2 = document.querySelector(".sidebar2");
   const createNewPostElement = document.querySelector(".slide");
 
   createNewPostElement.style.display = "none";
+  contents.style.removeProperty("z-index");
+  sidebar2.style.removeProperty("z-index");
+  containers.style.removeProperty("position");
 }

@@ -44,6 +44,7 @@
  
   {% include "sidebar.html" %}
 
+{% for post_items in post_items %}
   <!-- content -->
   <div class="item contents">
     <!-- content-3 -->
@@ -52,7 +53,7 @@
         <div class="header-profile rounded-circle"><img src="{% static "asset/profile-img/vicky-profile.jpg" %}" alt="Story Image" class="rounded-circle" /></div>
         <div class="name account-name">
           <p class="fw-bold d-inline-flex align-items-center">
-            ToniKross
+            {{ post_items.user.username }}
             <span class="verified-icon ms-1"> <img src="{% static "asset/icons/verified-icon.png" %}" width="15" /> </span>
           </p>
           <div class="upload-time"><span>•</span> 5h</div>
@@ -62,7 +63,7 @@
         </div>
       </div>
 
-      <div class="content-image"><img src="{% static "asset/content-img/drew-content.jpg" %}" alt="" class="content-img rounded-2" /></div>
+      <div class="content-image"><img src="{{ post_items.picture.url }}" alt="" class="content-img rounded-2" /></div>
 
       <div class="action-user">
         <div class="icon-action mt-2">
@@ -98,6 +99,7 @@
       </div>
     </div>
   </div>
+  {% endfor %}
 
   <!-- sidebar2 -->
   <div class="item sidebar2">
