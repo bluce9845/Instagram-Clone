@@ -1,4 +1,4 @@
-from unittest import loader
+from django.template import loader
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -24,4 +24,4 @@ def index(request):
         'post_items': post_items,
     }
     
-    return HttpResponse(template.render(context, request))
+    return render(request, 'home.html', context)

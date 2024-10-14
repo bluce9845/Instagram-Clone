@@ -44,16 +44,15 @@
  
   {% include "sidebar.html" %}
 
-{% for post_items in post_items %}
   <!-- content -->
   <div class="item contents">
-    <!-- content-3 -->
+    {% for post_value in post_items %}
     <div class="content mt-4 ms-auto me-auto">
       <div class="header-content">
         <div class="header-profile rounded-circle"><img src="{% static "asset/profile-img/vicky-profile.jpg" %}" alt="Story Image" class="rounded-circle" /></div>
         <div class="name account-name">
           <p class="fw-bold d-inline-flex align-items-center">
-            {{ post_items.user.username }}
+            {{ post_value.user.username }}
             <span class="verified-icon ms-1"> <img src="{% static "asset/icons/verified-icon.png" %}" width="15" /> </span>
           </p>
           <div class="upload-time"><span>•</span> 5h</div>
@@ -63,7 +62,7 @@
         </div>
       </div>
 
-      <div class="content-image"><img src="{{ post_items.picture.url }}" alt="" class="content-img rounded-2" /></div>
+      <div class="content-image"><img src="{{ post_value.picture.url }}" alt="" class="content-img rounded-2" /></div>
 
       <div class="action-user">
         <div class="icon-action mt-2">
@@ -74,12 +73,12 @@
         </div>
 
         <div class="like-number">
-          <p class="text-dark fw-semibold mt-2">341,368 likes</p>
+          <p class="text-dark fw-semibold mt-2">{{ post_value.likes }}</p>
         </div>
 
         <div class="description-content">
           <p>
-            <span class="fw-bold"><a href="#" class="text-decoration-none">Vicky_roks1</a></span> Parabéns Ayrton, minha inspiração sempre 🇧🇷📷
+            <span class="fw-bold"><a href="#" class="text-decoration-none">{{ post_value.user.username }}</a></span> {{post_value.caption}}
           </p>
         </div>
 
@@ -98,8 +97,8 @@
         </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 
   <!-- sidebar2 -->
   <div class="item sidebar2">
