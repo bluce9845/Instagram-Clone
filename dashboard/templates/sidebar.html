@@ -44,16 +44,6 @@
                   <div class="button-create-post text-center">
                     <div class="btn" style="background-color: #1877f2; color: #fff">Select from computer</div>
                   </div>
-
-                  <div class="post-from-landing-page">
-                    <form action="" method="POST" enctype="multipart/form-data">
-                      {% csrf_token %}
-                      {{form.picture}} <br>
-                      {{form.caption}} <br>
-                      {{form.tags}} <br>
-                      <button class="form-btn" type="submit">Post</button>
-                    </form>
-                  </div>
                 </div>
               </div>
             </div>

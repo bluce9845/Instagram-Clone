@@ -18,8 +18,6 @@ def index(request):
         
     post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
     
-    template = loader.get_template('home.html')
-    
     context = {
         'post_items': post_items,
     }
