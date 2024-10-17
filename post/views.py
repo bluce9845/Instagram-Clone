@@ -12,15 +12,14 @@ from post.models import Post, Stream, Tag
 def index(request):
     user = request.user
     print(f"User: {user} - ID: {user.id}")
-    
     posts = Stream.objects.filter(user=request.user)
     print(f"Posts for User {user}: {posts}")
     
     group_ids = []
     
     for post in posts:
-        group_ids.append(post.post.id)
         print(f"Post ID: {post.post.id}") 
+        group_ids.append(post.post_id)
         
     post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
     
@@ -28,11 +27,13 @@ def index(request):
 
     # post_items = Stream.objects.all()
     
+    template = loader.get_template('dashboard/test.html')
+    
     context = {
         'post_items': post_items
     }
     
-    return render(request, 'newPost.html', context)
+    return HttpResponse(template.render(context, request))
 
 @login_required
 def NewPost(request):

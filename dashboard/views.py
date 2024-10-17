@@ -5,11 +5,37 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm
 from .models import DataUser
+from django.template import loader
+from post.models import Post,Tag, Stream, Follow 
+from post.models import Post, Stream
 
 def home(request):
     all_users = User.objects.all()
     userData = DataUser.objects.all()
-    return render(request, 'home.html', {'userData': userData, 'all_users': all_users})
+    user = request.user
+    posts = Stream.objects.filter(user=request.user)
+    
+    # Testing User
+    print(f"User: {user} - ID: {user.id}")
+    print(f"Posts for User {user}: {posts}")
+    
+    group_ids = []
+    
+    for post in posts:
+        print(f"Post ID: {post.post.id}") 
+        group_ids.append(post.post_id)
+        
+    post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
+    
+    # Post Debug
+    print(post_items)
+    
+    context = {
+        'all_users': all_users,
+        'userData': userData,
+        'post_items': post_items
+    }
+    return render(request, 'dashboard/home.html', context)
 
 def logout_user(request):
     logout(request)
@@ -44,4 +70,30 @@ def logout_user(request):
 #================= TESTING ================#
 
 def test(request):
-    return render(request, 'test.html', {})
+
+    # post_items = Stream.objects.all()
+    
+    # template = loader.get_template('dashboard/test.html')
+    
+    # context = {
+    #     'post_items': post_items
+    # }
+    
+    return render(request, 'dashboard/test.html', {})
+
+def PostTest(request):
+    user = request.user
+    
+    post_items = Stream.objects.all().filter(user=user)
+    if request.method == 'POST':
+        picture = Post.objects.get['picture']
+        caption = Post.objects.get['caption']
+        tags_forms = Post.objects.get['tags']
+        
+        form = Stream.objects.get_or_create(picture=picture, caption=caption, tags=tags_forms, user=user)
+        
+        group_ids = []
+        
+        for group_id in group_ids:
+            group_id.append()
+            print(int(group_id))
