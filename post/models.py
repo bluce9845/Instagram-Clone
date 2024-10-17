@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.base import Model
 from django.db.models.signals import post_save, post_delete
 from django.utils.text import slugify
+from django.utils import timezone
 from django.urls import reverse
 import uuid
 
@@ -48,8 +49,8 @@ class Follow(models.Model):
 class Stream(models.Model):
     following = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='stream_following')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
-    date = models.DateTimeField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    date = models.DateTimeField(default=timezone.now)
 
     def add_post(sender, instance, *args, **kwargs):
         post = instance

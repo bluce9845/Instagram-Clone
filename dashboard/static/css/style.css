@@ -260,10 +260,18 @@ input#more:checked ~ .more-container {
   border-bottom: 1px solid var(--border-color);
 }
 
-.create-post .upload-content .icon img {
+.upload-content-1 {
+  display: block;
+}
+
+.create-post .upload-content-1 .icon img {
   margin: auto;
   margin-top: 27%;
   display: block;
+}
+
+.upload-content-form {
+  display: none;
 }
 
 /* sidebar 2 */

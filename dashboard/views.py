@@ -39,3 +39,9 @@ def register(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+#================= TESTING ================#
+
+def test(request):
+    return render(request, 'test.html', {})

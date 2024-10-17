@@ -1,9 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from .import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 from authy.views import UserProfile, OtherUserProfile
-
+from post.views import NewPost
 
 urlpatterns = [
     path("", views.home, name="home"),
@@ -13,5 +13,11 @@ urlpatterns = [
 
     # profile
     path("<username>/profile/", UserProfile, name="profile"),
-    path("<str:username>/profile-other/", OtherUserProfile, name="other_user_profile")
+    path("<str:username>/profile-other/", OtherUserProfile, name="other_user_profile"),
+    
+    # post
+    # path('create-post/', NewPost, name="newPost"),
+    
+    # =========== TESTING ============#
+    path('test/', views.test, name="test")
 ]

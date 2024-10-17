@@ -21,3 +21,11 @@ function closePost() {
   sidebar2.style.removeProperty("z-index");
   containers.style.removeProperty("position");
 }
+
+const displayFormPost = () => {
+  const uploadContent = document.querySelector(".upload-content-1");
+  const uploadForm = document.querySelector(".upload-content-form");
+
+  uploadContent.style.display = "none";
+  uploadForm.style.display = "block";
+};

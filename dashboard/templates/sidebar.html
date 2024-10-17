@@ -34,7 +34,7 @@
                 <div class="title text-center" style="padding: 10px 20px; height: 45px; width: 100%;">
                   <p class="fw-bold">Create new post</p>
                 </div>
-                <div class="upload-content">
+                <div class="upload-content-1">
                   <div class="icon">
                     <img src="{% static "asset/icons/icon-create-post.png" %}" width="150" alt="">
                   </div>
@@ -42,7 +42,7 @@
                     <p class="text-center fs-5">Drag photos and videos here</p>
                   </div>
                   <div class="button-create-post text-center">
-                    <div class="btn" style="background-color: #1877f2; color: #fff">Select from computer</div>
+                     <button  class="btn" style="background-color: #1877f2; color: #fff"><a href="{% url "newPost" %}" class="text-white">Select from computer</a></button>
                   </div>
                 </div>
               </div>

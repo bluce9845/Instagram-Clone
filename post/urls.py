@@ -1,6 +1,7 @@
-from post.views import index
+from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', index, name="index")
+    path('', views.index, name="index"),
+    path('newpost/', views.NewPost, name="newPost")
 ]
