@@ -293,7 +293,7 @@ input#more:checked ~ .more-container {
 
 .contents .content {
   width: 450px;
-  height: 746px;
+  min-height: 746px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -403,6 +403,18 @@ input#more:checked ~ .more-container {
 
 .content .action-user .description-content {
   margin-top: -16px;
+}
+
+.content .action-user #see-more-btn {
+  margin: -20px 0 10px 0;
+  color: var(--second-color-2);
+  cursor: pointer;
+}
+
+.content .action-user #see-less-btn {
+  margin: -15px 0 10px 0;
+  color: var(--second-color-2);
+  cursor: pointer;
 }
 
 .content .action-user .translate-description-content {

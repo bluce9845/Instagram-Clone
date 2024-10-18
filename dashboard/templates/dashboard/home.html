@@ -73,15 +73,20 @@
         </div>
 
         <div class="like-number">
-          <p class="text-dark fw-semibold mt-2">{{ posts_item.likes }}</p>
+          <p class="text-dark fw-semibold mt-2">{{ posts_item.likes }} Likes</p>
         </div>
 
         <div class="description-content">
-          <p>
-            <span class="fw-bold"><a href="#" class="text-decoration-none">{{ post_item.user.username }}</a></span> {{post_item.caption}}
+          <p id="short-text">
+            <span class="fw-bold"><a href="#" class="text-decoration-none">{{ posts_item.user.username }}</a></span> {{posts_item.caption|truncatewords:7 }} 
           </p>
+          <div id="full-text" style="display: none">
+            <p><span class="fw-bold"><a href="#" class="text-decoration-none">{{ posts_item.user.username }}</a></span> {{posts_item.caption}}</p>
+            <p>{% for tag in posts_item.tags.all %}<a href="{{ tag.get_absolute_url }}" class="text-decoration-none text-primary">#{{ tag }}</a>{% endfor %}</p>
+          </div>
+          <p id="see-more-btn" class="fw-semibold" style="display: none" onclick="btnSeeMoreClick()">See more</p>
+          <p id="see-less-btn" class="fw-semibold" style="display: none" onclick="btnSeeLessClick()">See less</p>
         </div>
-
         <div class="translate-description-content">
           <p><a href="#" class="text-decoration-none fw-semibold">See translation</a></p>
         </div>
@@ -98,8 +103,6 @@
       </div>
     </div>
     {% endfor %}
-
-    <h1>{{ name }}</h1>
   </div> 
 
   <!-- sidebar2 -->
