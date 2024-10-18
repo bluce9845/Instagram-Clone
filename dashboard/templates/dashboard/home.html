@@ -77,15 +77,15 @@
         </div>
 
         <div class="description-content">
-          <p id="short-text">
+          <p class="short-text">
             <span class="fw-bold"><a href="#" class="text-decoration-none">{{ posts_item.user.username }}</a></span> {{posts_item.caption|truncatewords:7 }} 
           </p>
-          <div id="full-text" style="display: none">
+          <div class="full-text" style="display: none">
             <p><span class="fw-bold"><a href="#" class="text-decoration-none">{{ posts_item.user.username }}</a></span> {{posts_item.caption}}</p>
-            <p>{% for tag in posts_item.tags.all %}<a href="{{ tag.get_absolute_url }}" class="text-decoration-none text-primary">#{{ tag }}</a>{% endfor %}</p>
+            <p>{% for tag in posts_item.tags.all %}<a href="{{ tag.get_absolute_url }}" class="text-decoration-none text-primary" style="display: inline-block">#{{ tag }}</a>{% endfor %}</p>
           </div>
-          <p id="see-more-btn" class="fw-semibold" style="display: none" onclick="btnSeeMoreClick()">See more</p>
-          <p id="see-less-btn" class="fw-semibold" style="display: none" onclick="btnSeeLessClick()">See less</p>
+          <p class="see-more-btn" class="fw-semibold" style="display: none" onclick="btnSeeMoreClick()">See more</p>
+          <p class="see-less-btn" class="fw-semibold" style="display: none" onclick="btnSeeLessClick()">See less</p>
         </div>
         <div class="translate-description-content">
           <p><a href="#" class="text-decoration-none fw-semibold">See translation</a></p>

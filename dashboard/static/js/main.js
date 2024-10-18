@@ -36,46 +36,41 @@ const displayFormPost = () => {
 // ========== display see more Btn if word more than 7 and move see more Btn if word less than or equal 7 =========//
 
 document.addEventListener("DOMContentLoaded", function () {
-  const fullText = document.getElementById("full-text").innerText;
-  const wordCount = fullText.trim().split(/\s+/).length;
-  const seeMoreBtn = document.getElementById("see-more-btn");
+  const posts = document.querySelectorAll(".description-content");
 
-  // Debug
-  console.log("Full Text Element:", fullText);
-  console.log("See More Button:", seeMoreBtn);
-  console.log("Word count :", wordCount);
+  posts.forEach((post) => {
+    const fullText = post.querySelector(".full-text").innerText;
+    const wordCount = fullText.trim().split(/\s+/).length;
+    const seeMoreBtn = post.querySelector(".see-more-btn");
+    const seeLessBtn = post.querySelector(".see-less-btn");
 
-  if (wordCount > 7) {
-    seeMoreBtn.style.display = "block";
-  } else {
-    seeMoreBtn.style.display = "none";
-  }
+    // Debug
+    console.log("Full Text Element:", fullText);
+    console.log("See More Button:", seeMoreBtn);
+    console.log("Word count:", wordCount);
+
+    if (wordCount > 7) {
+      seeMoreBtn.style.display = "block";
+    } else {
+      seeMoreBtn.style.display = "none";
+    }
+
+    // Event listener untuk "See More" button
+    seeMoreBtn.addEventListener("click", function () {
+      console.log("See More button clicked");
+      post.querySelector(".short-text").style.display = "none";
+      post.querySelector(".full-text").style.display = "block";
+      seeMoreBtn.style.display = "none";
+      seeLessBtn.style.display = "block";
+    });
+
+    // Event listener untuk "See Less" button
+    seeLessBtn.addEventListener("click", function () {
+      console.log("See Less button clicked");
+      post.querySelector(".short-text").style.display = "block";
+      post.querySelector(".full-text").style.display = "none";
+      seeMoreBtn.style.display = "block";
+      seeLessBtn.style.display = "none";
+    });
+  });
 });
-
-// document.getElementById("see-more-btn").addEventListener("click", function () {});
-
-const btnSeeMoreClick = () => {
-  const seeMoreBtn = document.getElementById("see-more-btn");
-  const seeLessBtn = document.getElementById("see-less-btn");
-
-  // Debug
-  console.log("See More button clicked");
-
-  document.getElementById("short-text").style.display = "none";
-  document.getElementById("full-text").style.display = "block";
-  seeMoreBtn.style.display = "none";
-  seeLessBtn.style.display = "block";
-};
-
-const btnSeeLessClick = () => {
-  const seeMoreBtn = document.getElementById("see-more-btn");
-  const seeLessBtn = document.getElementById("see-less-btn");
-
-  // Debug
-  console.log("See Less button clicked");
-
-  document.getElementById("short-text").style.display = "block";
-  document.getElementById("full-text").style.display = "none";
-  seeMoreBtn.style.display = "block";
-  seeLessBtn.style.display = "none";
-};

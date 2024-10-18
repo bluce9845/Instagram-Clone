@@ -405,13 +405,17 @@ input#more:checked ~ .more-container {
   margin-top: -16px;
 }
 
-.content .action-user #see-more-btn {
+.content .action-user .description-content {
+  width: 440px;
+}
+
+.content .action-user .see-more-btn {
   margin: -20px 0 10px 0;
   color: var(--second-color-2);
   cursor: pointer;
 }
 
-.content .action-user #see-less-btn {
+.content .action-user .see-less-btn {
   margin: -15px 0 10px 0;
   color: var(--second-color-2);
   cursor: pointer;
