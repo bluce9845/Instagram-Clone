@@ -74,3 +74,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ========= display icons in post profile if mouse over in img and hide icons if mouse out from img ===========//
+function displayIcon(imageElement) {
+  const postItem = imageElement.closest("li");
+
+  const likeIcon = postItem.querySelector(".like-icon-post-profile");
+  const commentIcon = postItem.querySelector(".comment-icon-post-profile");
+
+  console.log("Mouse over........");
+
+  likeIcon.style.display = "block";
+  commentIcon.style.display = "block";
+}
+
+function hideIcon(imageElement) {
+  const postItem = imageElement.closest("li");
+
+  const likeIcon = postItem.querySelector(".like-icon-post-profile");
+  const commentIcon = postItem.querySelector(".comment-icon-post-profile");
+
+  console.log("Mouse out........");
+
+  likeIcon.style.display = "none";
+  commentIcon.style.display = "none";
+}
+
+// ============ post on click display detail post =============//
+function postClick() {
+  const containerProfile = document.querySelector(".container-profile");
+  const detailPost = document.querySelector(".detail-posts");
+  const higlights = document.querySelector(".highlights");
+
+  detailPost.style.display = "block";
+  containerProfile.style.position = "fixed";
+  higlights.style.display = "none";
+}
+
+function closePost() {
+  const containerProfile = document.querySelector(".container-profile");
+  const detailPost = document.querySelector(".detail-posts");
+  const higlights = document.querySelector(".highlights");
+
+  detailPost.style.display = "none";
+  containerProfile.style.position = "";
+  higlights.style.display = "";
+}

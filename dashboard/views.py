@@ -1,15 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.template import loader
+from django.contrib.auth.decorators import login_required
+
 from .forms import UserRegisterForm
 from .models import DataUser
-from django.template import loader
 from post.models import Post,Tag, Stream, Follow 
 from post.models import Post, Stream
 
-def home(request):
+@login_required
+def home(request):    
     all_users = User.objects.all()
     userData = DataUser.objects.all()
     user = request.user
@@ -33,10 +36,12 @@ def home(request):
     context = {
         'all_users': all_users,
         'userData': userData,
-        'post_items': post_items
+        'post_items': post_items,
+        'profile_user': user
     }
     return render(request, 'dashboard/home.html', context)
 
+@login_required
 def logout_user(request):
     logout(request)
     messages.success(request, "You Have Been Logged Out....")
@@ -69,7 +74,7 @@ def logout_user(request):
 
 #================= TESTING ================#
 
-def test(request):
+# def test(request):
 
     # post_items = Stream.objects.all()
     
@@ -79,21 +84,21 @@ def test(request):
     #     'post_items': post_items
     # }
     
-    return render(request, 'dashboard/test.html', {})
+    # return render(request, 'dashboard/test.html', {})
 
-def PostTest(request):
-    user = request.user
+# def PostTest(request):
+#     user = request.user
     
-    post_items = Stream.objects.all().filter(user=user)
-    if request.method == 'POST':
-        picture = Post.objects.get['picture']
-        caption = Post.objects.get['caption']
-        tags_forms = Post.objects.get['tags']
+#     post_items = Stream.objects.all().filter(user=user)
+#     if request.method == 'POST':
+#         picture = Post.objects.get['picture']
+#         caption = Post.objects.get['caption']
+#         tags_forms = Post.objects.get['tags']
         
-        form = Stream.objects.get_or_create(picture=picture, caption=caption, tags=tags_forms, user=user)
+#         form = Stream.objects.get_or_create(picture=picture, caption=caption, tags=tags_forms, user=user)
         
-        group_ids = []
+#         group_ids = []
         
-        for group_id in group_ids:
-            group_id.append()
-            print(int(group_id))
+#         for group_id in group_ids:
+#             group_id.append()
+#             print(int(group_id))

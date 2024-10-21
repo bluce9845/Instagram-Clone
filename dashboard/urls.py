@@ -10,14 +10,7 @@ urlpatterns = [
     path('sign-up/', views.register, name="register"),
     path('login/', auth_views.LoginView.as_view(template_name="login.html", redirect_authenticated_user=True), name='login'),
     path("logout/", views.logout_user, name="logout"),
-
-    # profile
-    path("<username>/profile/", UserProfile, name="profile"),
-    path("<str:username>/profile-other/", OtherUserProfile, name="other_user_profile"),
-    
-    # post
-    # path('create-post/', NewPost, name="newPost"),
     
     # =========== TESTING ============#
-    path('test/', views.test, name="test")
+    # path('test/', views.test, name="test")
 ]

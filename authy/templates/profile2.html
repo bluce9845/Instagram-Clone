@@ -28,10 +28,74 @@
          
            <a href="#" class="create ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
          
-           <a href="{% url "profile" user %}" class="profile ms-1"
+           <a href="{% url "authy:profile"%}" class="profile ms-1"
              ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
            </a>
       </div>
+
+        {% comment %} detail post {% endcomment %}
+          <div class="detail-posts position-absolute">
+            <div class="close-post" id="close-post" onclick="closePost()"><i class="fa-solid fa-xmark text-white"></i></div>
+            <div class="detail-post">
+              <div class="content-post-img">
+                <img src="{% static "asset/content-img/ahmed-content.jpg" %}" width="450" height="550" alt="">
+              </div>
+              <div class="comment-post">
+                <div class="header-detail-post" style="border-top-right-radius: 9px; border-bottom-left-radius: 9px;">
+                  <div class="header-profile-post">
+                    <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" alt="Story Image" class="rounded-circle" />
+                  </div>
+                  <div class="user-post-name position-absolute">
+                    <p class="fw-semibold"><a href="#" class="text-decoration-none text-dark">rizki-admin</a></p>
+                  </div>
+                  <div class="options position-absolute">
+                    <a href="#" class="fs-3 text-decoration-none"><i class="bx bx-dots-horizontal-rounded"></i></a>
+                  </div>
+                </div>
+                <div class="description-detail-post">
+                  <div class="user-post-profile-description">
+                    <div class="user-post-profile-img">
+                      <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" alt="Story Image" class="rounded-circle" />
+                    </div>
+                    <div class="user-post-name position-absolute">
+                      <p class="fw-semibold"><a href="#" class="text-decoration-none text-dark">rizki-admin</a> <span class="description-content fw-normal ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis perspiciatis earum eveniet alias, delectus non iste facilis. 
+                        Adipisci eligendi reiciendis repellat nobis iure quibusdam, error debitis vitae. Eum ab, non minima, a eius nisi perferendis mollitia corporis sequi quia sed.</span>
+                      </p>
+                      <p class="time-post-description" style="margin-top: -15px">
+                        <span>7w</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="action-user-detail-post">
+                  <div class="user-action-post">
+                    <div class="icon-action mt-2">
+                      <a href="#" class="fs-3 ms-2"><i class="bx bx-heart"></i></a>
+                      <a href="#" class="fs-5 ms-2 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="24" alt="" /></a>
+                      <a href="#" class="fs-5 ms-2 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="27" alt="" /></a>
+                      <a href="#" class="fs-4 bookmark-icon"><i class="bx bx-bookmark"></i></a>
+                    </div>
+                  </div>
+                  <div class="post-like-count ms-2 mt-1">
+                    <p class="fw-medium">3,562 <span>likes</span></p>
+                  </div>
+                  <div class="post-time ms-2">
+                    <p class="fw-medium">August <span>28</span></p>
+                  </div>
+                </div>
+                <div class="add-comment-detail-post" style="border-bottom-right-radius: 9px;">
+                  <div class="add-comment">
+                    <form action="" method="post">
+                      <label for="comment" class="ms-2"><i class='bx bx-wink-smile'></i></label>
+                      <input type="text" name="comment" id="comment" class="ms-2" placeholder="Add comment...">
+                      
+                      <button type="submit" class="fw-semibold">Post</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
       <label for="more" class="mt-5 more" style="margin-left: 20px; cursor: pointer">
         <span class="icon"><i class="fa-solid fa-bars fs-4"></i></span> 
@@ -66,7 +130,7 @@
       <div class="col-md-7 mt-5 position-absolute" style="left: 50%; top: 1%">
         <div class="action-name-user d-flex">
           <p class="name-user mt-1 fs-5">
-            {{ user_profile.username }}
+            {{ profile_user.username }}
           </p>
 
           <div class="follow-btn">
@@ -88,7 +152,7 @@
 
         <div class="follower-posts-amount d-flex mt-2">
           <p class="post-amount">
-              <span class="fw-semibold">52</span> posts
+              <span class="fw-semibold">{{ postValue }}</span> posts
           </p>
 
           <p class="follower-amount">
@@ -175,21 +239,50 @@
       </div>
     </div>
 
-    <div class="content-profile-2">
+      {% if postValue > 0 %}
+      <div class="content-profile-2">
         <ul class="content-item">
-          <li><a href="#"><img src="{% static "asset/posts-profile/post1.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post2.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post3.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post4.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post5.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post6.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post7.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post8.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post9.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post10.png"%}" width="312" height="312" alt=""></a></li>
-          <li><a href="#"><img src="{% static "asset/posts-profile/post11.png"%}" width="312" height="312" alt=""></a></li>
+          {% if posts %}
+            {% for user_post in posts %}
+                <li>
+                  <div class="icon d-flex position-absolute">
+                    <div class="like-icon-post-profile" style="display:none;">
+                      <i class='bx bxs-heart'></i><span class="ms-1">2,765</span>
+                    </div>
+                    <div class="comment-icon-post-profile ms-2" style="display:none;">
+                      <i class='bx bxs-message-rounded bx-flip-horizontal' style='color:#00000'></i><span class="ms-1">78</span>
+                    </div>
+                  </div>
+                  <a href="#">
+                    <img src="{{ user_post.picture.url }}" width="312" height="312" class="posts" alt="" 
+                         onmouseover="displayIcon(this)" 
+                         onmouseout="hideIcon(this)"
+                         onclick="postClick()">
+                  </a>
+                </li>
+            {% endfor %}
+          {% endif %}
         </ul>
-    </div>
+      </div>
+
+    {% else %}
+      <div class="content-profile-2 ">
+        <div class="null-post">
+          <div class="icon rounded-circle" style="font-size: 2.8rem; padding: 9px 10.6px; border: 1px solid #000; width: 68.7px; height: 65px;">
+            <i class='bx bx-camera align-items-center justify-content-center d-block ms-auto me-auto'></i>
+          </div>
+          <div class="text-null-post">
+            <p class="fs-3 fw-bold">Share Photos</p>
+          </div>
+          <div class="text-null-post-2">
+            <p style="font-size: .8rem; margin: -10px 0 0 0" class="text-center fw-semibold">When you share photos, they will appear on your profile.</p>
+          </div>
+          <div class="text-null-post-2">
+            <p style="font-size: .9rem; margin: -10px 0 0 0" class="text-center fw-semibold mt-3"><a href="#" class="text-decoration-none">Share you first photo</a></p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
 
     <div class="profile-user-footer text-center align-items-center mt-4">
       <footer >

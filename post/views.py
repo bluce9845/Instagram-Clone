@@ -11,14 +11,15 @@ from post.models import Post, Stream, Tag
 @login_required
 def index(request):
     user = request.user
-    print(f"User: {user} - ID: {user.id}")
     posts = Stream.objects.filter(user=request.user)
+
+    print(f"User: {user} - ID: {user.id}")
     print(f"Posts for User {user}: {posts}")
     
     group_ids = []
     
     for post in posts:
-        print(f"Post ID: {post.post.id}") 
+        print(f"Post ID: {post.post_id}") 
         group_ids.append(post.post_id)
         
     post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
