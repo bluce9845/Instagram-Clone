@@ -13,11 +13,14 @@ function createNewPost() {
   sidebar2.style.zIndex = "-1";
 }
 
-function closePost() {
+function closeCreatePost() {
   const containers = document.querySelector(".containers");
   const contents = document.querySelector(".contents");
   const sidebar2 = document.querySelector(".sidebar2");
   const createNewPostElement = document.querySelector(".slide");
+
+  // Debug
+  console.log("Close this create post...");
 
   createNewPostElement.style.display = "none";
   contents.style.removeProperty("z-index");
@@ -43,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const wordCount = fullText.trim().split(/\s+/).length;
     const seeMoreBtn = post.querySelector(".see-more-btn");
     const seeLessBtn = post.querySelector(".see-less-btn");
+    const tagPost = post.querySelector(".tags-post");
 
     // Debug
     console.log("Full Text Element:", fullText);
@@ -51,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (wordCount > 7) {
       seeMoreBtn.style.display = "block";
+      tagPost.style.display = "none";
     } else {
       seeMoreBtn.style.display = "none";
     }
@@ -101,6 +106,7 @@ function hideIcon(imageElement) {
 }
 
 // ============ post on click display detail post =============//
+
 function postClick() {
   const containerProfile = document.querySelector(".container-profile");
   const detailPost = document.querySelector(".detail-posts");
@@ -111,7 +117,7 @@ function postClick() {
   higlights.style.display = "none";
 }
 
-function closePost() {
+function closeDetailPost() {
   const containerProfile = document.querySelector(".container-profile");
   const detailPost = document.querySelector(".detail-posts");
   const higlights = document.querySelector(".highlights");
@@ -119,4 +125,22 @@ function closePost() {
   detailPost.style.display = "none";
   containerProfile.style.position = "";
   higlights.style.display = "";
+}
+
+// ========= like condition =========== //
+
+function likeClick() {
+  const likeIconNotLike = document.querySelector(".like-icon-not-like");
+  const likeIconLike = document.querySelector(".like-icon-like");
+
+  likeIconNotLike.style.display = "none";
+  likeIconLike.style.display = "inline-block";
+}
+
+function disLike() {
+  const likeIconNotLike = document.querySelector(".like-icon-not-like");
+  const likeIconLike = document.querySelector(".like-icon-like");
+
+  likeIconNotLike.style.display = "inline-block";
+  likeIconLike.style.display = "none";
 }

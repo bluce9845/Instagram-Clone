@@ -1,9 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color: white;
+  --second-color: #262626;
+  --second-color-2: #8e8e8e;
+  --bg-color: #ffffff;
+  --second-bg-color: #fafafa;
+  --border-color: #dbdbdb;
+  --second-border-color: #efefef;
+  --link-color: #0095f6;
+  --font-roboto: "Roboto", sans-serif;
+}
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: var(--font-roboto);
 }
 
 html {
@@ -37,7 +52,7 @@ body {
 .container {
   width: 100%;
   max-width: 93.5rem;
-   margin: 1rem auto 0; 
+  margin: 1rem auto 0;
 }
 
 #wrapper > .container {
@@ -75,10 +90,10 @@ body {
 }
 
 .form-data form input {
-  padding: .8rem;
-  margin-bottom: .5rem;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
   border: 2px solid #eee;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
 }
 
 .form-btn {
@@ -89,7 +104,7 @@ body {
   font-weight: bold;
   color: #fff;
   border: none;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   cursor: pointer;
 }
 
@@ -129,7 +144,7 @@ body {
 
 .facebook-login i {
   font-size: 2rem;
-  margin-right: .7rem;
+  margin-right: 0.7rem;
 }
 
 .password-reset {
@@ -222,7 +237,7 @@ footer .container {
 
     margin: 0 auto;
   }
-  
+
   .wrapper > .container {
     padding: 0;
   }

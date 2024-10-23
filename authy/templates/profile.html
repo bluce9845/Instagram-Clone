@@ -36,10 +36,10 @@
         {% comment %} detail post {% endcomment %}
           <div class="detail-posts position-absolute">
             {% if user_posts %}
-            <div class="close-post" id="close-post" onclick="closePost()"><i class="fa-solid fa-xmark text-white"></i></div>
+            <div class="close-post" id="close-post" onclick="closeDetailPost()"><i class="fa-solid fa-xmark text-white"></i></div>
             <div class="detail-post">
               <div class="content-post-img">
-                <img src="{% static "asset/content-img/ahmed-content.jpg" %}" width="450" height="550" alt="">
+                <img src="{% static "asset/content-img/ahmed-content.jpg" %}" class="mainPostImage" id="mainPostImage" width="450" height="550" alt="">
               </div>
               <div class="comment-post">
                 <div class="header-detail-post" style="border-top-right-radius: 9px; border-bottom-left-radius: 9px;">
@@ -59,7 +59,9 @@
                       <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" alt="Story Image" class="rounded-circle" />
                     </div>
                     <div class="user-post-name position-absolute">
-                      <p class="fw-semibold"><a href="#" class="text-decoration-none text-dark">{{ user.username }}</a> <span class="description-content fw-normal "> test </span>
+                      <p class="fw-semibold"><a href="#" class="text-decoration-none text-dark">{{ user.username }}</a> <span class="description-content fw-normal "> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                         Ducimus molestias, rem nemo reprehenderit suscipit modi dicta quidem non, optio adipisci facere aspernatur possimus vitae pariatur exercitationem, et quo voluptatum voluptate.
+                          Sunt porro cum facilis unde dolorem reprehenderit voluptates repudiandae animi! </span>
                       </p>
                       <p class="time-post-description" style="margin-top: -15px">
                         <span>7w</span>

@@ -1,5 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color: white;
+  --second-color: #262626;
+  --second-color-2: #8e8e8e;
+  --bg-color: #ffffff;
+  --second-bg-color: #fafafa;
+  --border-color: #dbdbdb;
+  --second-border-color: #efefef;
+  --link-color: #0095f6;
+  --link-hover: #8fa0ff;
+  --font-roboto: "Roboto", sans-serif;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--font-roboto);
+}
+
+.tag-section {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    "sidebar tag-content"
+    "sidebar tag-content";
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.container-content .nav-tag {
+  grid-area: header;
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: 20;
+}
+
+.tag-section .container-content {
+  grid-area: tag-content;
+}
+
+.tag-section .action-user-tag button {
+  height: 32px;
+  padding: 0 15px;
+  color: var(--bg-color);
+  background-color: var(--link-color);
+  font-size: 0.8rem;
+}
+
+.tag-section .action-user-tag button:hover {
+  border: none;
+  color: var(--bg-color);
+  background-color: var(--link-hover);
+}
+
+.tag-section .action-user-tag .options a {
+  font-size: 1.5rem;
+  color: var(--second-color);
+  cursor: pointer;
+}
+
+.tag-section .tag-content {
+  padding: 15px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 7px;
+  z-index: 1;
+}
+
+.tag-section .tag-content .content-item a img {
+  margin: 0;
+  padding: 0;
 }

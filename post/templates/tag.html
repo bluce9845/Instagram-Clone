@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+
+    <section class="tag-section">
+      <div class="sidebar">{% include "sidebar.html" %}</div>
+
+      {% if posts %}
+      <div class="container-content">
+        <nav class="nav-tag d-flex p-4">
+          <div class="title-tag mt-1">
+            <p class="fs-2">#{{ tag }}</p>
+          </div>
+
+          <div class="action-user-tag ms-auto d-flex">
+            <button class="btn me-4"><span class="fw-semibold">Follow</span></button>
+            <div class="options">
+              <a><i class="bx bx-dots-horizontal-rounded"></i></a>
+            </div>
+          </div>
+        </nav>
+        <div class="tag-content">
+          {% for post in posts %}
+          <div class="content-item">
+            <a href="#"><img src="{{ post.picture.url }}" width="316.99" height="316.99" alt="" /></a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+    {% endblock %}
+  </body>
+</html>

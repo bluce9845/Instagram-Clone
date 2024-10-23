@@ -66,23 +66,29 @@
 
       <div class="action-user">
         <div class="icon-action mt-2">
-          <a href="#" class="fs-2"><i class="bx bx-heart"></i></a>
+          <a href="{% url "postLike" posts_item.id %}" onclick="likeClick()" class="fs-2 like-icon-not-like" style="display: inline-block"><i class="bx bx-heart"></i></a>
+          <a href="{% url "postLike" posts_item.id %}" onclick="dislike()" class="fs-2 like-icon-like" style="display: none"><i class='bx bxs-heart' style='color:#ff0000'  ></i></a>
           <a href="#" class="fs-3 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="28" alt="" /></a>
           <a href="#" class="fs-3 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="30" alt="" /></a>
           <a href="#" class="fs-3 bookmark-icon"><i class="bx bx-bookmark"></i></a>
         </div>
 
         <div class="like-number">
-          <p class="text-dark fw-semibold mt-2">{{ posts_item.likes }} Likes</p>
+          <p class="text-dark fw-semibold mt-2"><span class="like-count">{{ posts_item.likes }}</span> Likes</p>
         </div>
 
         <div class="description-content">
-          <p class="short-text">
+          <p class="short-text" style="display:">
             <span class="fw-bold"><a href="#" class="text-decoration-none">{{ posts_item.user.username }}</a></span> {{posts_item.caption|truncatewords:7 }} 
+            <p class="tags-post">
+              {% for tag in posts_item.tags.all %}
+                <a href="{% url "tags" tag.slug %}" class="text-decoration-none text-primary" style="display: inline-block">#{{ tag }}</a>
+              {% endfor %}
+            </p>
           </p>
           <div class="full-text" style="display: none">
             <p><span class="fw-bold"><a href="#" class="text-decoration-none">{{ posts_item.user.username }}</a></span> {{posts_item.caption}}</p>
-            <p>{% for tag in posts_item.tags.all %}<a href="{{ tag.get_absolute_url }}" class="text-decoration-none text-primary" style="display: inline-block">#{{ tag }}</a>{% endfor %}</p>
+            <p>{% for tag in posts_item.tags.all %}<a href="{% url "tags" tag.slug %}" class="text-decoration-none text-primary" style="display: inline-block">#{{ tag }}</a>{% endfor %}</p>
           </div>
           <p class="see-more-btn" class="fw-semibold" style="display: none" onclick="btnSeeMoreClick()">See more</p>
           <p class="see-less-btn" class="fw-semibold" style="display: none" onclick="btnSeeLessClick()">See less</p>
@@ -110,7 +116,7 @@
     <div class="profile-icon-sidebar2">
       <div class="profile-sidebar2-image"><img src="{% static "asset/profile-img/my-profile.jpg" %}" width="56" alt="profile image" class="rounded-circle" /></div>
       <div class="name position-absolute">
-        <p class="ms-5 fw-bold"><a class="text-decoration-none text-dark" href="{% url "authy:profile"%}">{{ user.username }}</a></p>
+        <p class="ms-5 fw-bold"><a class="text-decoration-none text-dark" href="{% url "authy:profile" %}">{{ user.username }}</a></p>
         <p class="ms-5 second-name">@{{ user.username }}</p>
       </div>
 
@@ -130,7 +136,7 @@
       <div class="suggestion-account mt-4">
         <div class="profile-suggestion-image"><img src="{% static "asset/profile-img/emiliano-profile.jpg" %}" width="40" alt="profile image" class="rounded-circle" /></div>
         <div class="name-suggestion-account position-absolute">
-          <p class="ms-5 fw-bold"><a href="{% url "authy:profile_other" profile_user.username %}" class="text-decoration-none text-dark">{{ user.username }}</a></p>
+          <p class="ms-5 fw-bold"><a href="{% url "authy:profile_other" user.username %}" class="text-decoration-none text-dark">{{ user.username }}</a></p>
           <p class="ms-5 second-name-suggestion">Followed by {{ user.username }}</p>
         </div>
 

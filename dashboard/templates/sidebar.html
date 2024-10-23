@@ -29,7 +29,7 @@
          
           <a class="create ms-3" onclick="createNewPost()" style="cursor: pointer"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
             <div class="slide position-absolute">
-              <div class="close" id="close" onclick="closePost()"><i class="fa-solid fa-xmark text-white"></i></div>
+              <div class="close" id="close" onclick="closeCreatePost()"><i class="fa-solid fa-xmark text-white"></i></div>
               <div class="create-post rounded-3">
                 <div class="title text-center" style="padding: 10px 20px; height: 45px; width: 100%;">
                   <p class="fw-bold">Create new post</p>
@@ -48,7 +48,7 @@
               </div>
             </div>
          
-          <a href="{% url "authy:profile"%}" class="profile ms-1"
+          <a href="{% url "authy:profile" %}" class="profile ms-1"
              ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
           </a>
       </div>

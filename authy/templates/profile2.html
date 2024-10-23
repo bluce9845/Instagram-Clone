@@ -35,10 +35,10 @@
 
         {% comment %} detail post {% endcomment %}
           <div class="detail-posts position-absolute">
-            <div class="close-post" id="close-post" onclick="closePost()"><i class="fa-solid fa-xmark text-white"></i></div>
+            <div class="close-post" id="close-post" onclick="closeDetailPost()"><i class="fa-solid fa-xmark text-white"></i></div>
             <div class="detail-post">
               <div class="content-post-img">
-                <img src="{% static "asset/content-img/ahmed-content.jpg" %}" width="450" height="550" alt="">
+                <img src="{{ posts.picture.url }}" width="450" height="550" alt="">
               </div>
               <div class="comment-post">
                 <div class="header-detail-post" style="border-top-right-radius: 9px; border-bottom-left-radius: 9px;">
