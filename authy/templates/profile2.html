@@ -6,7 +6,7 @@
 
     <div class="menu-sidebar mt-4">
       <div class="sidebar-link">
-            <a href="\" class="home fw-semibold ms-3"
+            <a href="/home/" class="home fw-semibold ms-3"
              ><span class="icon icon-home fs-2"><i class="bx bxs-home"></i></span> <span class="span-text ms-3 fw-bold fs-5" style="margin-top: -10px">Home</span>
            </a>
          
@@ -26,7 +26,26 @@
              ><span class="icon fs-2"><i class="bx bx-heart"></i></span> <span class="span-text ms-3">Notifications</span>
            </a>
          
-           <a href="#" class="create ms-3"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+           <a class="create ms-3" onclick="createNewPost()" style="cursor: pointer"><span class="icon fs-2"><img src="{% static "asset/icons/icon-create.png" %}" alt="" width="23" style="margin-bottom: 5px" /></span> <span class="span-text">Create</span> </a>
+              <div class="slide position-absolute">
+                <div class="close" id="close" onclick="closeCreatePost()"><i class="fa-solid fa-xmark text-white"></i></div>
+                <div class="create-post rounded-3">
+                  <div class="title text-center" style="padding: 10px 20px; height: 45px; width: 100%;">
+                    <p class="fw-bold">Create new post</p>
+                  </div>
+                  <div class="upload-content-1">
+                    <div class="icon">
+                      <img src="{% static "asset/icons/icon-create-post.png" %}" width="150" alt="">
+                    </div>
+                    <div class="text-create-post">
+                      <p class="text-center fs-5">Drag photos and videos here</p>
+                    </div>
+                    <div class="button-create-post text-center">
+                       <button  class="btn" style="background-color: #1877f2; color: #fff"><a href="{% url "newPost" %}" class="text-white">Select from computer</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
          
            <a href="{% url "authy:profile"%}" class="profile ms-1"
              ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
@@ -188,7 +207,7 @@
       </div>
 
       {% comment %} highlights 1 {% endcomment %}
-      <div class="col-md-5 position-absolute highlights" style="top: 35%">
+      <div class="col-md-5 position-absolute highlights" style="top: 35%; z-index: 1;">
           <div class="header-profile rounded-circle ">
             <img src="{% static "asset3/highlight-img/highlight-1.jpg" %}" alt="" class=" rounded-circle">
             <p class="position-absolute  title-highlight fw-medium">Lake 🏊</p>
@@ -247,7 +266,7 @@
                 <li>
                   <div class="icon d-flex position-absolute">
                     <div class="like-icon-post-profile" style="display:none;">
-                      <i class='bx bxs-heart'></i><span class="ms-1">2,765</span>
+                      <i class='bx bxs-heart'></i><span class="ms-1">{{ user_post.likes }}</span>
                     </div>
                     <div class="comment-icon-post-profile ms-2" style="display:none;">
                       <i class='bx bxs-message-rounded bx-flip-horizontal' style='color:#00000'></i><span class="ms-1">78</span>

@@ -7,6 +7,7 @@ from django.utils import timezone
 from post.forms import NewPostform
 from django.http import HttpResponse, HttpResponseRedirect
 from post.models import Post, Stream, Tag, Likes
+from authy.models import Profile
 
 
 @login_required
@@ -105,4 +106,21 @@ def like(request, post_id):
     post.likes = current_likes
     post.save()
     
+    return redirect('home')
+
+
+@login_required
+def favorite(request, post_id):
+    user = request.user
+    post = Post.objects.get(id=post_id)
+    profile = Profile.objects.get(user=user)
+    print(f"This favorites : {profile.favorites}")
+    
+    print(f"This user : {post}")
+    
+    if profile.favorites.filter(id=post_id).exists():
+        profile.favorites.remove(post)
+    else:
+        profile.favorites.add(post)
+
     return redirect('home')

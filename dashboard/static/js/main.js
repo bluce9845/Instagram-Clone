@@ -2,30 +2,28 @@ console.log("main.js loaded");
 
 // ============ display Post function =========== //
 function createNewPost() {
-  const containers = document.querySelector(".containers");
   const contents = document.querySelector(".contents");
   const sidebar2 = document.querySelector(".sidebar2");
   const createNewPostElement = document.querySelector(".slide");
+  document.body.classList.add("no-scroll");
 
   createNewPostElement.style.display = "block";
-  containers.style.position = "fixed";
   contents.style.zIndex = "-1";
   sidebar2.style.zIndex = "-1";
 }
 
 function closeCreatePost() {
-  const containers = document.querySelector(".containers");
   const contents = document.querySelector(".contents");
   const sidebar2 = document.querySelector(".sidebar2");
   const createNewPostElement = document.querySelector(".slide");
+  document.body.classList.remove("no-scroll");
 
   // Debug
-  console.log("Close this create post...");
+  // console.log("Close this create post...");
 
   createNewPostElement.style.display = "none";
   contents.style.removeProperty("z-index");
   sidebar2.style.removeProperty("z-index");
-  containers.style.removeProperty("position");
 }
 
 const displayFormPost = () => {
@@ -35,6 +33,35 @@ const displayFormPost = () => {
   uploadContent.style.display = "none";
   uploadForm.style.display = "block";
 };
+
+// ============ display Post function profile user login =========== //
+function createNewPostProfileUserLogin() {
+  const createNewPostElement = document.querySelector(".slide");
+  const highlights = document.querySelector(".highlights");
+  document.body.classList.add("no-scroll");
+
+  // Debug
+  console.log("Button create click...");
+
+  createNewPostElement.style.display = "block";
+  createNewPostElement.style.zIndex = "300";
+  highlights.style.display = "none";
+}
+
+function closeCreatePostProfileUserLogin() {
+  const createNewPostElement = document.querySelector(".slide");
+  const highlights = document.querySelector(".highlights");
+  document.body.classList.remove("no-scroll");
+
+  // Debug
+  console.log("Close this create post...");
+
+  createNewPostElement.style.display = "none";
+  createNewPostElement.style.removeProperty("z-index");
+  highlights.style.display = "flex";
+}
+
+// ============ display Post function profile other user =========== //
 
 // ========== display see more Btn if word more than 7 and move see more Btn if word less than or equal 7 =========//
 
@@ -49,9 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const tagPost = post.querySelector(".tags-post");
 
     // Debug
-    console.log("Full Text Element:", fullText);
-    console.log("See More Button:", seeMoreBtn);
-    console.log("Word count:", wordCount);
+    // console.log("Full Text Element:", fullText);
+    // console.log("See More Button:", seeMoreBtn);
+    // console.log("Word count:", wordCount);
 
     if (wordCount > 7) {
       seeMoreBtn.style.display = "block";
@@ -87,8 +114,6 @@ function displayIcon(imageElement) {
   const likeIcon = postItem.querySelector(".like-icon-post-profile");
   const commentIcon = postItem.querySelector(".comment-icon-post-profile");
 
-  console.log("Mouse over........");
-
   likeIcon.style.display = "block";
   commentIcon.style.display = "block";
 }
@@ -98,8 +123,6 @@ function hideIcon(imageElement) {
 
   const likeIcon = postItem.querySelector(".like-icon-post-profile");
   const commentIcon = postItem.querySelector(".comment-icon-post-profile");
-
-  console.log("Mouse out........");
 
   likeIcon.style.display = "none";
   commentIcon.style.display = "none";
@@ -125,22 +148,4 @@ function closeDetailPost() {
   detailPost.style.display = "none";
   containerProfile.style.position = "";
   higlights.style.display = "";
-}
-
-// ========= like condition =========== //
-
-function likeClick() {
-  const likeIconNotLike = document.querySelector(".like-icon-not-like");
-  const likeIconLike = document.querySelector(".like-icon-like");
-
-  likeIconNotLike.style.display = "none";
-  likeIconLike.style.display = "inline-block";
-}
-
-function disLike() {
-  const likeIconNotLike = document.querySelector(".like-icon-not-like");
-  const likeIconLike = document.querySelector(".like-icon-like");
-
-  likeIconNotLike.style.display = "inline-block";
-  likeIconLike.style.display = "none";
 }

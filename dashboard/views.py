@@ -11,6 +11,9 @@ from .models import DataUser
 from post.models import Post,Tag, Stream, Follow 
 from post.models import Post, Stream
 
+def userNotLogin(request):
+    return render(request, 'dashboard/user_not_login.html', {})
+
 @login_required
 def home(request):    
     all_users = User.objects.all()
