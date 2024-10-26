@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="detail-post-container">
+<div class="close-post position-absolute ms-auto fs-4" id="close-post" style="top: 1%; left: 18%">
+    <a href="{% url "home" %}"><i class="fa-solid fa-xmark text-white"></i></a>
+</div>
+  <div class="post-container position-absolute">
+    <div class="detail-post-content">
+      <div class="post-image"><img src="{{ post.picture.url }}" width="424.8" height="550" class="post-img" alt="" /></div>
+    </div>
+
+    <div class="sidebar-post">
+        <div class="header-post-detail">
+          <div class="profile-user-post-detail">
+            <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" class="rounded-circle" alt="user-profile">
+            <div class="name-user-post-detail position-absolute ms-5 mt-1"><a href="#" class="text-decoration-none text-dark fw-medium">{{ post.user.username }}</a></div>
+          </div>
+          <div class="option">
+            <a href="#" class="text-decoration-none text-secondary fs-3 position-absolute"><i class="bx bx-dots-horizontal-rounded"></i></a>
+          </div>
+        </div>
+        <div class="comment-and-description-post-detail">
+          <div class="profile-user-des-com">
+            <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" class="rounded-circle" alt="user-profile-2">
+            <div class="name-user-des-com position-absolute">
+              <p class="user-post-detail-des-com">
+                <a href="#" class="text-decoration-none text-dark fw-medium">rizki-admin</a>
+                <span class="description-content fw-normal">
+                    {{ post.caption }}
+                </span>
+
+                <span class="tag">
+                    {% for tag in post.tags.all %}
+                      <a href="{% url "tags" tag.slug %}" class="text-decoration-none text-primary" style="display: inline-block">#{{ tag }}</a>
+                    {% endfor %}
+                </span>
+              </p>
+              <p class="time-post-description" style="margin-top: -15px">
+                <span>7w</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="user-action-post-detail">
+          <div class="user-action-post">
+            <div class="icon-action mt-2">
+              <a href="#" class="fs-3 ms-2"><i class="bx bx-heart"></i></a>
+              <a href="#" class="fs-5 ms-2 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="24" alt="" /></a>
+              <a href="#" class="fs-5 ms-2 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="27" alt="" /></a>
+              {% if post.favorites > 0 %}
+                <a href="{% url "post-favorite" post.id %}" class="fs-4 bookmark-icon"><i class='bx bxs-bookmark' style='color:#ffeb00' ></i></a>
+              {% else %}
+                <a href="{% url "post-favorite" post.id %}" class="fs-4 bookmark-icon"><i class="bx bx-bookmark"></i></a>
+              {% endif %}
+            </div>
+          </div>
+          <div class="post-like-count ms-2 mt-1">
+            <p class="fw-medium">{{ post.likes }} <span>likes</span></p>
+          </div>
+          <div class="post-time ms-2">
+            <p class="fw-medium">{{ post.posted }}</p>
+          </div>
+        </div>
+        <div class="add-comment-post-detail">
+          <div class="add-comment">
+            <form action="" method="post">
+              <label for="comment" class="ms-2"><i class="bx bx-wink-smile"></i></label>
+              <input type="text" name="comment" id="comment" class="ms-2" placeholder="Add comment..." />
+
+              <button type="submit" class="fw-semibold">Post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>

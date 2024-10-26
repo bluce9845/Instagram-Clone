@@ -2,12 +2,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from authy.views import follow
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("users/", include('authy.urls')),
     path('', include('dashboard.urls')),
-    path('', include('post.urls'))
+    path('', include('post.urls')),
+    
+    # follow url
+    path("<username>/follow/<option>", follow, name="follow"),
 ]
 
 if settings.DEBUG:

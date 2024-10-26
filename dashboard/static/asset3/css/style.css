@@ -69,9 +69,10 @@ body.no-scroll {
 }
 
 .profile-user .action-name-user .name-user.message-btn button,
-.profile-user .action-name-user .follow-btn button,
+.profile-user .action-name-user .follow-btn a,
 .profile-user .action-name-user .message-btn button,
-.profile-user .action-name-user .addcontact-btn button {
+.profile-user .action-name-user .addcontact-btn button,
+.profile-user .action-name-user .editProfile-btn button {
   color: var(--second-color);
   border: none;
   background-color: var(--second-border-color);
@@ -242,7 +243,7 @@ body.no-scroll {
 }
 
 /* detail posts */
-.menu-sidebar .detail-posts {
+.detail-posts {
   width: 535.9%;
   height: 100vh;
   display: none;
@@ -258,7 +259,7 @@ body.no-scroll {
   cursor: pointer;
 }
 
-.menu-sidebar .detail-posts .detail-post {
+.detail-posts .detail-post {
   width: 900px;
   height: 550px;
   margin: auto;
@@ -360,7 +361,7 @@ body.no-scroll {
 }
 
 .icon-action .bookmark-icon {
-  margin-left: 67%;
+  margin-left: 66%;
 }
 
 .action-user-detail-post .post-like-count p {

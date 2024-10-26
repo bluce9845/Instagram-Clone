@@ -127,25 +127,3 @@ function hideIcon(imageElement) {
   likeIcon.style.display = "none";
   commentIcon.style.display = "none";
 }
-
-// ============ post on click display detail post =============//
-
-function postClick() {
-  const containerProfile = document.querySelector(".container-profile");
-  const detailPost = document.querySelector(".detail-posts");
-  const higlights = document.querySelector(".highlights");
-
-  detailPost.style.display = "block";
-  containerProfile.style.position = "fixed";
-  higlights.style.display = "none";
-}
-
-function closeDetailPost() {
-  const containerProfile = document.querySelector(".container-profile");
-  const detailPost = document.querySelector(".detail-posts");
-  const higlights = document.querySelector(".highlights");
-
-  detailPost.style.display = "none";
-  containerProfile.style.position = "";
-  higlights.style.display = "";
-}

@@ -149,12 +149,18 @@
       <div class="col-md-7 mt-5 position-absolute" style="left: 50%; top: 1%">
         <div class="action-name-user d-flex">
           <p class="name-user mt-1 fs-5">
-            {{ profile_user.username }}
+            {{ user.username }}
           </p>
 
+          {% if user.is_authenticated and user != profile %}
           <div class="follow-btn">
-            <button class="btn btn-secondary ms-4 fw-semibold rounded-3">Follow</button>
+            {% if follow_status == True %}
+              <a href="{% url "follow" profile 0 %}" class="btn btn-secondary ms-4 fw-semibold rounded-3">Unfollow</a>
+            {% else %}
+              <a href="{% url "follow" profile 1 %}" class="btn btn-secondary ms-4 fw-semibold rounded-3">Follow</a>
+            {% endif %}
           </div>
+          {% endif %}
 
           <div class="message-btn">
             <button class="btn btn-secondary ms-2 fw-semibold rounded-3">Message</button>
@@ -272,11 +278,10 @@
                       <i class='bx bxs-message-rounded bx-flip-horizontal' style='color:#00000'></i><span class="ms-1">78</span>
                     </div>
                   </div>
-                  <a href="#">
+                  <a href="{% url "postDetails" user_post.id %}">
                     <img src="{{ user_post.picture.url }}" width="312" height="312" class="posts" alt="" 
                          onmouseover="displayIcon(this)" 
-                         onmouseout="hideIcon(this)"
-                         onclick="postClick()">
+                         onmouseout="hideIcon(this)">
                   </a>
                 </li>
             {% endfor %}

@@ -1,8 +1,11 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.db import transaction
 from post.models import Post, Stream, Tag, Follow, Likes
+from .models import Profile
 
 
 @login_required
@@ -26,14 +29,23 @@ def UserProfile(request):
 
 @login_required
 def OtherUserProfile(request, username):
-    profile_user = get_object_or_404(User, username=username)
-    posts = Post.objects.filter(user=profile_user).order_by("-posted")
-    postValue = Post.objects.filter(user=profile_user).count()
+    user = get_object_or_404(User, username=username)
+    posts = Post.objects.filter(user=user).order_by("-posted")
+    postValue = Post.objects.filter(user=user).count()
+    profile = Post.objects.filter(user=user).all()
+    
+    # Check follow status
+    follow_status = Follow.objects.filter(following=user, follower=request.user).exists()
+
+    # Debug
+    print(f"This user in profile variable : {profile}")
 
     context = {
-        'profile_user': profile_user,
+        'user': user,
         'posts': posts,
         'postValue': postValue,
+        'follow_status': follow_status,
+        'profile': profile,
     }
     
     return render(request, 'profile2.html', context)
@@ -77,3 +89,29 @@ def likeOtherProfile(request, post_id):
     post.save()
     
     return redirect('profile')
+
+@login_required
+def follow(request, username, option):
+    user = request.user
+    following = get_object_or_404(User, username=username)
+    
+    # Debug
+    print(f"This following user for user {user} : {following}")
+    
+    try:
+        f, cretaed = Follow.objects.get_or_create(follower=user, following=following)
+        
+        if int(option) == 0:
+            f.delete()
+            Stream.objects.filter(following=following, user=user).all().delete()
+        else:
+            posts = Post.objects.all().filter(user=following)[:10]
+            
+            with transaction.atomic():
+                for post in posts:
+                    stream = Stream(post=post, user=user, date=post.posted, following=following)
+                    stream.save()
+
+        return HttpResponseRedirect(reverse('authy:profile_other', args=[username]))
+    except User.DoesNotExist:
+        return HttpResponseRedirect(reverse('authy:profile_other', args=[username]))

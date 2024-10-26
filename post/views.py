@@ -76,6 +76,16 @@ def NewPost(request):
     return render(request, 'newPost.html', context)
 
 
+def postDetails(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    
+    context = {
+        'post': post
+    }
+    
+    return render(request, 'postDetail.html', context)
+
+
 @login_required
 def tags(request, tag_slug):
     tag = get_object_or_404(Tag, slug=tag_slug)
@@ -114,7 +124,7 @@ def favorite(request, post_id):
     user = request.user
     post = Post.objects.get(id=post_id)
     profile = Profile.objects.get(user=user)
-    print(f"This favorites : {profile.favorites}")
+    print(f"This favorites : {profile}")
     
     print(f"This user : {post}")
     
@@ -123,4 +133,4 @@ def favorite(request, post_id):
     else:
         profile.favorites.add(post)
 
-    return redirect('home')
+    return HttpResponseRedirect(reverse('postDetails', args=[post_id]))

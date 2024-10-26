@@ -52,73 +52,6 @@
              </a>
           </div>
 
-        {% comment %} detail post {% endcomment %}
-          <div class="detail-posts position-absolute">
-            {% if user_posts %}
-            <div class="close-post" id="close-post" onclick="closeDetailPost()"><i class="fa-solid fa-xmark text-white"></i></div>
-            <div class="detail-post">
-              <div class="content-post-img">
-                <img src="{% static "asset/content-img/ahmed-content.jpg" %}" class="mainPostImage" id="mainPostImage" width="450" height="550" alt="">
-              </div>
-              <div class="comment-post">
-                <div class="header-detail-post" style="border-top-right-radius: 9px; border-bottom-left-radius: 9px;">
-                  <div class="header-profile-post">
-                    <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" alt="Story Image" class="rounded-circle" />
-                  </div>
-                  <div class="user-post-name position-absolute">
-                    <p class="fw-semibold"><a href="#" class="text-decoration-none text-dark">{{ user.username }}</a></p>
-                  </div>
-                  <div class="options position-absolute">
-                    <a href="#" class="fs-3 text-decoration-none"><i class="bx bx-dots-horizontal-rounded"></i></a>
-                  </div>
-                </div>
-                <div class="description-detail-post">
-                  <div class="user-post-profile-description">
-                    <div class="user-post-profile-img">
-                      <img src="{% static "asset/profile-img/vicky-profile.jpg" %}" width="34" alt="Story Image" class="rounded-circle" />
-                    </div>
-                    <div class="user-post-name position-absolute">
-                      <p class="fw-semibold"><a href="#" class="text-decoration-none text-dark">{{ user.username }}</a> <span class="description-content fw-normal "> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                         Ducimus molestias, rem nemo reprehenderit suscipit modi dicta quidem non, optio adipisci facere aspernatur possimus vitae pariatur exercitationem, et quo voluptatum voluptate.
-                          Sunt porro cum facilis unde dolorem reprehenderit voluptates repudiandae animi! </span>
-                      </p>
-                      <p class="time-post-description" style="margin-top: -15px">
-                        <span>7w</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="action-user-detail-post">
-                  <div class="user-action-post">
-                    <div class="icon-action mt-2">
-                      <a href="#" class="fs-3 ms-2"><i class="bx bx-heart"></i></a>
-                      <a href="#" class="fs-5 ms-2 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="24" alt="" /></a>
-                      <a href="#" class="fs-5 ms-2 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="27" alt="" /></a>
-                      <a href="#" class="fs-4 bookmark-icon"><i class="bx bx-bookmark"></i></a>
-                    </div>
-                  </div>
-                  <div class="post-like-count ms-2 mt-1">
-                    <p class="fw-medium">3,562 <span>likes</span></p>
-                  </div>
-                  <div class="post-time ms-2">
-                    <p class="fw-medium">August <span>28</span></p>
-                  </div>
-                </div>
-                <div class="add-comment-detail-post" style="border-bottom-right-radius: 9px;">
-                  <div class="add-comment">
-                    <form action="" method="post">
-                      <label for="comment" class="ms-2"><i class='bx bx-wink-smile'></i></label>
-                      <input type="text" name="comment" id="comment" class="ms-2" placeholder="Add comment...">
-                      
-                      <button type="submit" class="fw-semibold">Post</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endif %}
-          </div>
-
         <label for="more" class="mt-5 more" style="margin-left: 20px; cursor: pointer">
           <span class="icon"><i class="fa-solid fa-bars fs-4"></i></span> 
           <span class="span-text" style="margin: 0 0 0 22px">More</span>
@@ -155,7 +88,7 @@
             {{ user.username }}
           </p>
 
-          <div class="follow-btn">
+          <div class="editProfile-btn">
             <button class="btn btn-secondary ms-4 fw-semibold rounded-3">Edit profile</button>
           </div>
 
@@ -272,11 +205,10 @@
                       <i class='bx bxs-message-rounded bx-flip-horizontal' style='color:#00000'></i><span class="ms-1">78</span>
                     </div>
                   </div>
-                  <a href="#">
+                  <a href="{% url "postDetails" user_post.id %}">
                     <img src="{{ user_post.picture.url }}" width="312" height="312" class="posts" alt="" 
                          onmouseover="displayIcon(this)" 
-                         onmouseout="hideIcon(this)"
-                         onclick="postClick()">
+                         onmouseout="hideIcon(this)">
                   </a>
                 </li>
             {% endfor %}

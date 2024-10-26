@@ -1,4 +1,6 @@
 {% extends "base.html" %}{% load static %} {% block title %}Instagram{% endblock %} {% block content %} 
+
+{% if user.is_authenticated %}
 <div class="containers">
   <!-- header -->
   <div class="item header container">
@@ -62,7 +64,7 @@
         </div>
       </div>
 
-      <div class="content-image"><img src="{{ posts_item.picture.url }}" alt="" class="content-img rounded-2" /></div>
+      <div class="content-image"><a href="{% url "postDetails" posts_item.id %}"><img src="{{ posts_item.picture.url }}" alt="" class="content-img rounded-2" /></a></div>
       <div class="action-user">
         <div class="icon-action mt-2">
           <a href="{% url "postLike" posts_item.id %}" class="fs-2 like-icon-not-like" id="like-icon-not-like"><i class="bx bx-heart"></i></a>
@@ -155,4 +157,5 @@
     </div>
   </div>
 </div>
+{% endif %}
 {% endblock %}
