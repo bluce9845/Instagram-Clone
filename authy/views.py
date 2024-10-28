@@ -2,24 +2,38 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, resolve
 from django.db import transaction
 from post.models import Post, Stream, Tag, Follow, Likes
 from .models import Profile
+from post.models import Post
 
 
 @login_required
-def UserProfile(request):
+def UserProfile(request, username):
     user = request.user
     postValue = user.posts.count()
-    posts = user.posts.all().order_by('-posted')
     post_items = Post.objects.filter(user=user).order_by('-posted')
+    profile = Profile.objects.get(user=user)
+    url_name = resolve(request.path).url_name
+    follower_count = Follow.objects.filter(follower=user).count()
+    following_count = Follow.objects.filter(following=user).count()
+    
+    if url_name == 'profile':
+        posts = Post.objects.filter(user=user).order_by("-posted")
+    else:
+        posts = profile.favorites.all()
+        
+    # url name test get url from browser
+    print(f"Url name from name urls : {url_name}")
     
     context = {
         'postValue': postValue,
         'user_posts': posts,
-        # 'picture_user': picture_user,
-        'user':user
+        'url_name': url_name,
+        'user': user,
+        'follower_count': follower_count,
+        'following_count': following_count,
     }
     
     print(f"This user posts : {post_items}")
@@ -33,6 +47,8 @@ def OtherUserProfile(request, username):
     posts = Post.objects.filter(user=user).order_by("-posted")
     postValue = Post.objects.filter(user=user).count()
     profile = Post.objects.filter(user=user).all()
+    follower_count = Follow.objects.filter(following=user).count()
+    following_count = Follow.objects.filter(follower=user).count()
     
     # Check follow status
     follow_status = Follow.objects.filter(following=user, follower=request.user).exists()
@@ -46,6 +62,8 @@ def OtherUserProfile(request, username):
         'postValue': postValue,
         'follow_status': follow_status,
         'profile': profile,
+        'following_count': following_count,
+        'follower_count': follower_count,
     }
     
     return render(request, 'profile2.html', context)

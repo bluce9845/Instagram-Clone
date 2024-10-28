@@ -7,7 +7,8 @@ app_name = "authy"
 
 urlpatterns = [ 
     path("", include('dashboard.urls')),
-    path("profile/", views.UserProfile, name="profile"),
+    path("<username>/", views.UserProfile, name="profile"),
+    path("<username>/saved", views.UserProfile, name="profileFavorites"),
     path("profile-other/<str:username>", views.OtherUserProfile, name="profile_other"),
     path("<uuid:post_id>/like/", views.likeProfile, name="likePostProfile"),
     path("<uuid:post_id>/like/", views.likeOtherProfile, name="likePostOtherProfile")

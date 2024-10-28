@@ -10,6 +10,9 @@ from .forms import UserRegisterForm
 from .models import DataUser
 from post.models import Post,Tag, Stream, Follow 
 from post.models import Post, Stream
+from post.views import favorite
+
+from authy.models import Profile
 
 def userNotLogin(request):
     return render(request, 'dashboard/user_not_login.html', {})

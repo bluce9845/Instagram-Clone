@@ -47,7 +47,7 @@
                 </div>
               </div>
          
-           <a href="{% url "authy:profile"%}" class="profile ms-1"
+           <a href="{% url "authy:profile" user.username %}" class="profile ms-1"
              ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
            </a>
       </div>
@@ -181,11 +181,11 @@
           </p>
 
           <p class="follower-amount">
-              <span class="fw-semibold ms-5">826k</span> followers
+              <span class="fw-semibold ms-5">{{ follower_count }}</span> followers
           </p>
           
           <p class="following-amount">
-              <span class="fw-semibold ms-5">80</span> following
+              <span class="fw-semibold ms-5">{{ following_count }}</span> following
           </p>
         </div>
 

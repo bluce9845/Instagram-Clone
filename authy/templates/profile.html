@@ -47,7 +47,7 @@
                 </div>
               </div>
              
-             <a href="{% url "authy:profile" %}" class="profile ms-1"
+             <a href="{% url "authy:profile" user.username %}" class="profile ms-1"
                ><span class="icon fs-2"><img src="{% static "asset/profile-img/my-profile.jpg" %}" alt="" width="28" style="margin-bottom: 8px" class="rounded-circle" /></span> <span class="span-text">Profile</span>
              </a>
           </div>
@@ -107,11 +107,11 @@
           </p>
 
           <p class="follower-amount">
-              <span class="fw-semibold ms-5">826k</span> followers
+              <span class="fw-semibold ms-5">{{ follower_count }}</span> followers
           </p>
           
           <p class="following-amount">
-              <span class="fw-semibold ms-5">80</span> following
+              <span class="fw-semibold ms-5">{{ following_count }}</span> following
           </p>
         </div>
 
@@ -175,12 +175,12 @@
         <table class="table table-borderless text-center" style="margin: 0 auto">
           <thead>
             <tr class="fw-semibold">
-              <td id="posts" class="active">
-                <span><i class="fa-solid fa-table-cells"></i></span> POSTS
+              <td id="posts">
+                <a href="{% url "authy:profile" user.username %}" class="text-decoration-none"><span><i class="fa-solid fa-table-cells"></i></span> POSTS</a>
               </td>
               <td id="reels"><img src="{% static "asset/icons/icon-rels.png" %}" alt="" width="15" style="margin-bottom: 5px" /> REELS</td>
-              <td id="saved">
-                <span><i class='bx bx-bookmark'></i></span> SAVED
+              <td id="saved" class="{% if url_name == "profileFavorites" %}active{% endif %}">
+                <a href="{% url "authy:profileFavorites" user.username %}" class="text-decoration-none"><span><i class='bx bx-bookmark'></i></span> SAVED</a>
               </td>
               <td id="tagged">
                 <span><i class="bx bx-user-pin kontak-icon"></i></span> TAGGED

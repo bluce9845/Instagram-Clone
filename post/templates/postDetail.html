@@ -46,7 +46,7 @@
               <a href="#" class="fs-3 ms-2"><i class="bx bx-heart"></i></a>
               <a href="#" class="fs-5 ms-2 comment-icon"><img src="{% static "asset/icons/icon-comment.png" %}" width="24" alt="" /></a>
               <a href="#" class="fs-5 ms-2 paper-plane-icon"><img src="{% static "asset/icons/paper-plane-icon.png" %}" width="27" alt="" /></a>
-              {% if post.favorites > 0 %}
+              {% if favorite is True %}
                 <a href="{% url "post-favorite" post.id %}" class="fs-4 bookmark-icon"><i class='bx bxs-bookmark' style='color:#ffeb00' ></i></a>
               {% else %}
                 <a href="{% url "post-favorite" post.id %}" class="fs-4 bookmark-icon"><i class="bx bx-bookmark"></i></a>

@@ -144,7 +144,8 @@ body.no-scroll {
   flex-grow: 1;
 }
 
-.content-profile .header-profile table td {
+.content-profile .header-profile table td,
+.content-profile .header-profile table td a {
   padding: 20px 20px;
   font-size: 0.8rem;
   cursor: pointer;
@@ -152,7 +153,8 @@ body.no-scroll {
   position: relative;
 }
 
-.content-profile .header-profile table td::before {
+.content-profile .header-profile table td::before,
+.content-profile .header-profile table td a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -164,7 +166,8 @@ body.no-scroll {
   transition: width 0.3s;
 }
 
-.content-profile .header-profile table td.active-profile::before {
+.content-profile .header-profile table td.active-profile::before,
+.content-profile .header-profile table td a.active-profile::before {
   width: 50%;
 }
 

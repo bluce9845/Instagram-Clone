@@ -78,9 +78,17 @@ def NewPost(request):
 
 def postDetails(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+    favorite = False
+    
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        
+        if profile.favorites.filter(id=post_id).exists():
+            favorite = True
     
     context = {
-        'post': post
+        'post': post,
+        'favorite': favorite
     }
     
     return render(request, 'postDetail.html', context)
