@@ -155,9 +155,9 @@
           {% if user.is_authenticated and user != profile %}
           <div class="follow-btn">
             {% if follow_status == True %}
-              <a href="{% url "follow" profile 0 %}" class="btn btn-secondary ms-4 fw-semibold rounded-3">Unfollow</a>
+              <a href="{% url "follow" user.username 0 %}" class="btn btn-secondary ms-4 fw-semibold rounded-3">Unfollow</a>
             {% else %}
-              <a href="{% url "follow" profile 1 %}" class="btn btn-secondary ms-4 fw-semibold rounded-3">Follow</a>
+              <a href="{% url "follow" user.username 1 %}" class="btn btn-secondary ms-4 fw-semibold rounded-3">Follow</a>
             {% endif %}
           </div>
           {% endif %}
@@ -181,11 +181,11 @@
           </p>
 
           <p class="follower-amount">
-              <span class="fw-semibold ms-5">{{ follower_count }}</span> followers
+              <span class="fw-semibold ms-5">{{ following_count }}</span> followers
           </p>
           
           <p class="following-amount">
-              <span class="fw-semibold ms-5">{{ following_count }}</span> following
+              <span class="fw-semibold ms-5">{{ follower_count }}</span> following
           </p>
         </div>
 
